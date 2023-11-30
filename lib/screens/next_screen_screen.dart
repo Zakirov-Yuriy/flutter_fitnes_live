@@ -1,6 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_fitnes_live/screens/goal_screen.dart';
+/*Файл NextScreen отвечает за экран, который представляет собой приветствие от   тренера (Анны)
+ и содержит кнопку для перехода к основному экрану с вопросами о целях пользователя.
+ */
 
+// Импорт необходимых библиотек
+import 'package:flutter/material.dart';
+import 'package:flutter_fitnes_live/screens/question_answer_screen.dart';
+
+// Класс для создания NextScreen
 class NextScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -13,8 +19,8 @@ class NextScreen extends StatelessWidget {
             height: MediaQuery.of(context).size.height / 2,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(
-                    'assets/images/anna_photo.jpg'), // Замените на вашу фотографию
+                image:
+                    AssetImage('assets/images/anna_photo.jpg'), //  Фотография
                 fit: BoxFit.cover,
               ),
             ),
@@ -28,7 +34,7 @@ class NextScreen extends StatelessWidget {
               children: [
                 SizedBox(height: 40),
                 const Text(
-                  'Привет, я Анна!',
+                  'Привет, я Анна!', // Текст приветствия
                   style: TextStyle(
                     fontSize: 24.0,
                     fontWeight: FontWeight.bold,
@@ -45,9 +51,10 @@ class NextScreen extends StatelessWidget {
                             'Я ваш личный тренер.\nУ меня есть пара вопросов к вам, они помогут составить ',
                       ),
                       TextSpan(
-                        text: 'персональный план',
+                        text:
+                            'персональный план', // Текст "персональный план" жирным шрифтом и с определенным цветом
                         style: TextStyle(
-                          color: Color.fromARGB(255, 230, 108, 108),
+                          color: Color.fromRGBO(255, 51, 119, 1),
                         ),
                       ),
                       TextSpan(
@@ -57,6 +64,7 @@ class NextScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 80),
+
                 // Кнопка "Начать"
                 ElevatedButton(
                   onPressed: () {
@@ -64,19 +72,19 @@ class NextScreen extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => GoalScreen()),
                     );
-                    // Добавьте здесь код для обработки нажатия кнопки
+                    // Добавьте код здесь для обработки нажатия кнопки
                   },
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size(double.infinity, 50),
-                    backgroundColor: const Color.fromARGB(255, 230, 108, 108),
+                    backgroundColor: const Color.fromRGBO(255, 51, 119, 1),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
                   child: const Text(
-                    'Начать',
+                    'НАЧАТЬ', // Текст кнопки "НАЧАТЬ" прописан заглавными буквами
                     style: TextStyle(
-                      fontSize: 30.0,
+                      fontSize: 24.0,
                       color: Colors.white,
                     ),
                   ),
