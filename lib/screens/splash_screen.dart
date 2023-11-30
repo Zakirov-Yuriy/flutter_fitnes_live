@@ -1,8 +1,10 @@
+//Загрущочный экран
+// Загружаем необходимые библиотеки
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_fitnes_live/screens/next_screen_widget.dart';
+import 'package:flutter_fitnes_live/screens/next_screen_screen.dart';
 
+// Класс для создания загрузочного экрана
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -10,7 +12,10 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
+  // Контроллер для управления анимацией
   late AnimationController _controller;
+
+  // Анимация для изменения размера
   late Animation<double> _animation;
 
   @override
@@ -29,7 +34,7 @@ class _SplashScreenState extends State<SplashScreen>
     // Запуск анимации
     _controller.forward();
 
-    // Имитация задержки загрузки (в данном случае 5 секунд)
+    // Имитация задержки загрузки (в данном случае 3 секунды)
     Future.delayed(const Duration(seconds: 3), () {
       // После завершения задержки перейдите на следующий экран
       Navigator.pushReplacement(
@@ -51,6 +56,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Stack(
         fit: StackFit.expand,
         children: [
@@ -75,6 +81,7 @@ class _SplashScreenState extends State<SplashScreen>
             child: const Center(
               child: Column(
                 children: [
+                  // Заголовок "Workout" с белым цветом и размером шрифта 48.0
                   Text(
                     'Workout',
                     style: TextStyle(
@@ -82,10 +89,11 @@ class _SplashScreenState extends State<SplashScreen>
                       fontSize: 48.0,
                     ),
                   ),
+                  // Подзаголовок "for women" с цветом #FF3377 и размером шрифта 48.0
                   Text(
                     'for women',
                     style: TextStyle(
-                      color: Color.fromARGB(255, 230, 108, 108),
+                      color: Color.fromRGBO(255, 51, 119, 1),
                       fontSize: 48.0,
                     ),
                   ),
