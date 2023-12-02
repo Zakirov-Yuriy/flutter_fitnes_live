@@ -1,34 +1,42 @@
-/*Этот файл представляет собой экран "Цель" в приложении.
-Здесь задается вопрос, отображаются варианты ответов, и пользователь может выбрать ответ.
- После выбора ответа он может перейти к следующему вопросу.
+/*
+  Этот файл представляет собой экран "Цель" в приложении.
+  Здесь задается вопрос, отображаются варианты ответов, и пользователь может выбрать ответ.
+  После выбора ответа он может перейти к следующему вопросу.
 */
-// goal_screen.dart
+
+// Импорт необходимых библиотек и виджетов
 import 'package:flutter/material.dart';
 import 'package:flutter_fitnes_live/screens/sole_purpose_screen.dart';
 import 'package:flutter_fitnes_live/widgets/question%20answer/question_answer_widget.dart';
 
+// Основной виджет для экрана "Цель"
 class GoalScreen extends StatefulWidget {
   @override
   _GoalScreenState createState() => _GoalScreenState();
 }
 
+// Состояние виджета "Цель"
 class _GoalScreenState extends State<GoalScreen> {
-  int completedAnswers = 0;
-  final String _labelTitle = 'Что мотивирует вас больше всего?';
+  int completedAnswers = 0; // Счетчик выбранных ответов
+  final String _labelTitle =
+      'Что мотивирует вас больше всего?'; // Заголовок вопроса
 
-  bool isButtonEnabled = false; // Флаг активации кнопки
+  bool isButtonEnabled = false; // Флаг активации кнопки "СЛЕДУЮЩЕЕ"
 
+  // Основной метод для построения виджета
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // Виджет "Оболочка" для создания базовой структуры экрана
       appBar: AppBar(
-        title: const Text('Цель'),
+        title: const Text('Цель'), // Заголовок экрана
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
       ),
       body: Container(
+        // Виджет "Контейнер" для создания отступов и управления внешним видом
         color: Colors.white,
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -39,6 +47,7 @@ class _GoalScreenState extends State<GoalScreen> {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 20.0),
+            // Виджет для вопроса с вариантами ответов
             QuestionAnswerWidget(
               iconData: Icons.thumb_up_outlined,
               labelText: 'Чувствовать себя уверенно',
@@ -69,6 +78,7 @@ class _GoalScreenState extends State<GoalScreen> {
               onSelected: (isSelected) => updateButtonState(isSelected),
             ),
             SizedBox(height: 40.0),
+            // Виджет "Поднятая кнопка" для перехода к следующему вопросу
             ElevatedButton(
               onPressed: isButtonEnabled
                   ? () {
@@ -104,6 +114,7 @@ class _GoalScreenState extends State<GoalScreen> {
     );
   }
 
+  // Метод для обновления состояния кнопки "СЛЕДУЮЩЕЕ"
   void updateButtonState(bool isSelected) {
     setState(() {
       isButtonEnabled = isSelected;

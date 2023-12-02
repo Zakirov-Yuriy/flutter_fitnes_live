@@ -1,10 +1,18 @@
+/*
+  Этот файл содержит виджет для отображения вопроса с вариантами ответа.
+  Виджет реагирует на касание, позволяя пользователю выбирать варианты ответа.
+*/
+
+// Импорт необходимых библиотек
 import 'package:flutter/material.dart';
 
+// Виджет для вопроса с вариантами ответа
 class QuestionAnswerWidget extends StatefulWidget {
-  final IconData iconData;
-  final String labelText;
-  final ValueChanged<bool>? onSelected;
+  final IconData iconData; // Иконка для отображения варианта ответа
+  final String labelText; // Текст варианта ответа
+  final ValueChanged<bool>? onSelected; // Callback-функция для обработки выбора
 
+  // Конструктор с параметрами
   const QuestionAnswerWidget({
     Key? key,
     required this.iconData,
@@ -16,16 +24,19 @@ class QuestionAnswerWidget extends StatefulWidget {
   _QuestionAnswerWidgetState createState() => _QuestionAnswerWidgetState();
 }
 
+// Состояние виджета вопроса с вариантами ответа
 class _QuestionAnswerWidgetState extends State<QuestionAnswerWidget> {
-  bool isSelected = false;
+  bool isSelected = false; // Флаг выбора ответа
 
+  // Метод для построения виджета
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         setState(() {
-          isSelected = !isSelected;
-          widget.onSelected?.call(isSelected);
+          isSelected = !isSelected; // Переключение флага выбора при касании
+          widget.onSelected
+              ?.call(isSelected); // Вызов callback-функции при выборе
         });
       },
       child: Container(
