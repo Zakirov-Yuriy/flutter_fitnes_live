@@ -2,7 +2,7 @@
 // Загружаем необходимые библиотеки
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_fitnes_live/screens/next_screen_screen.dart';
+import 'package:flutter_fitnes_live/screens/next_anna_screen.dart';
 
 // Класс для создания загрузочного экрана
 class SplashScreen extends StatefulWidget {
