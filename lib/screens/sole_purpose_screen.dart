@@ -20,10 +20,14 @@ class _SolePurposeState extends State<SolePurpose> {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     bool isButtonEnabled = openedWidgetIndex != -1;
 
     return Scaffold(
       backgroundColor: Colors.white,
+=======
+    return Scaffold(
+>>>>>>> origin/main
       appBar: AppBar(
         title: const Text('Цель'),
         centerTitle: true,
@@ -73,6 +77,7 @@ class _SolePurposeState extends State<SolePurpose> {
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
           child: ElevatedButton(
+<<<<<<< HEAD
             onPressed: isButtonEnabled
                 ? () {
                     setState(() {
@@ -85,6 +90,16 @@ class _SolePurposeState extends State<SolePurpose> {
               backgroundColor: isButtonEnabled
                   ? const Color.fromRGBO(255, 51, 119, 1)
                   : Colors.grey, // Измените цвет, как вам нужно
+=======
+            onPressed: () {
+              setState(() {
+                completedAnswers++;
+              });
+            },
+            style: ElevatedButton.styleFrom(
+              minimumSize: const Size(double.infinity, 50),
+              backgroundColor: const Color.fromRGBO(255, 51, 119, 1),
+>>>>>>> origin/main
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
