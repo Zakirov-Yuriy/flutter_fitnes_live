@@ -1,11 +1,19 @@
+/*
+  Этот файл содержит виджет для отображения элемента выбора цели в приложении.
+  Виджет представляет собой контейнер с изображением и описанием цели.
+  При выборе цели виджет меняет стиль и отображает дополнительную информацию.
+*/
+
+// Импорт необходимых библиотек и кастомных иконок
 import 'package:flutter/material.dart';
 import 'package:flutter_fitnes_live/costom_icons.dart';
 
+// Виджет для отображения элемента выбора цели
 class SolePurposeWidget extends StatefulWidget {
-  final String labelText;
-  final String imagePath;
-  final bool isSelected;
-  final VoidCallback onTap;
+  final String labelText; // Текстовое описание цели
+  final String imagePath; // Путь к изображению цели
+  final bool isSelected; // Флаг выбора цели
+  final VoidCallback onTap; // Callback-функция при нажатии на виджет
 
   SolePurposeWidget({
     Key? key,
@@ -19,6 +27,7 @@ class SolePurposeWidget extends StatefulWidget {
   _SolePurposeWidgetState createState() => _SolePurposeWidgetState();
 }
 
+// Состояние виджета выбора цели
 class _SolePurposeWidgetState extends State<SolePurposeWidget> {
   @override
   Widget build(BuildContext context) {

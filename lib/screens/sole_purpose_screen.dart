@@ -1,26 +1,37 @@
+/*
+  Этот файл представляет собой экран "Цель" в приложении.
+  Здесь пользователь выбирает главную цель и переходит к следующему этапу.
+*/
+
+// Импорт необходимых библиотек и виджетов
 import 'package:flutter/material.dart';
 import 'package:flutter_fitnes_live/widgets/sole%20purpose/sole_purpose_widget.dart';
 
+// Виджет для экрана выбора главной цели
 class SolePurpose extends StatefulWidget {
   @override
   _SolePurposeState createState() => _SolePurposeState();
 }
 
+// Состояние виджета выбора главной цели
 class _SolePurposeState extends State<SolePurpose> {
-  int completedAnswers = 0;
-  final String _labelTitle = 'Какая у вас главная \nцель?';
+  int completedAnswers = 0; // Счетчик выбранных целей
+  final String _labelTitle = 'Какая у вас главная \nцель?'; // Заголовок экрана
 
-  int openedWidgetIndex = -1;
+  int openedWidgetIndex = -1; // Индекс открытого виджета цели
 
+  // Метод для обновления индекса открытого виджета
   void updateOpenedWidgetIndex(int index) {
     setState(() {
       openedWidgetIndex = openedWidgetIndex == index ? -1 : index;
     });
   }
 
+  // Метод для построения виджета
   @override
   Widget build(BuildContext context) {
-    bool isButtonEnabled = openedWidgetIndex != -1;
+    bool isButtonEnabled =
+        openedWidgetIndex != -1; // Флаг активации кнопки "Следующее"
 
     return Scaffold(
       appBar: AppBar(
@@ -83,7 +94,7 @@ class _SolePurposeState extends State<SolePurpose> {
               minimumSize: const Size(double.infinity, 50),
               backgroundColor: isButtonEnabled
                   ? const Color.fromRGBO(255, 51, 119, 1)
-                  : Colors.grey, // Измените цвет, как вам нужно
+                  : Colors.grey,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
