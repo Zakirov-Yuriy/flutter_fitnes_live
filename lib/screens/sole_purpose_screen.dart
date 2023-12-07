@@ -5,6 +5,8 @@
 
 // Импорт необходимых библиотек и виджетов
 import 'package:flutter/material.dart';
+import 'package:flutter_fitnes_live/costom_icons.dart';
+import 'package:flutter_fitnes_live/screens/smart_exercise_screen.dart';
 import 'package:flutter_fitnes_live/widgets/sole%20purpose/sole_purpose_widget.dart';
 
 // Виджет для экрана выбора главной цели
@@ -58,6 +60,9 @@ class _SolePurposeState extends State<SolePurpose> {
                 imagePath: 'assets/images/snap1.png',
                 isSelected: openedWidgetIndex == 0,
                 onTap: () => updateOpenedWidgetIndex(0),
+                additionalText: 'Вы сможете достичь своих целей!',
+                additionalSubText: 'Путь к здоровому и активному образу жизни!',
+                customIcon: CostomIcons.sports_4fzqtvt977t1,
               ),
               SizedBox(height: 25.0),
               SolePurposeWidget(
@@ -65,6 +70,9 @@ class _SolePurposeState extends State<SolePurpose> {
                 imagePath: 'assets/images/snap2.png',
                 isSelected: openedWidgetIndex == 1,
                 onTap: () => updateOpenedWidgetIndex(1),
+                additionalText: 'Пришло время стать сильнее!',
+                additionalSubText:
+                    'Ваш тренер поможет активировать каждую мышцу!',
               ),
               SizedBox(height: 25.0),
               SolePurposeWidget(
@@ -72,6 +80,10 @@ class _SolePurposeState extends State<SolePurpose> {
                 imagePath: 'assets/images/snap3.png',
                 isSelected: openedWidgetIndex == 2,
                 onTap: () => updateOpenedWidgetIndex(2),
+                additionalText: 'Путеводитель по здоровому образу жизни!',
+                additionalSubText:
+                    'Добро пожаловать в мир здоровья и активности!',
+                customIcon: CostomIcons.success_ifcteb55zwwt,
               ),
             ],
           ),
@@ -85,6 +97,10 @@ class _SolePurposeState extends State<SolePurpose> {
           child: ElevatedButton(
             onPressed: isButtonEnabled
                 ? () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SmartExercise()),
+                    );
                     setState(() {
                       completedAnswers++;
                     });

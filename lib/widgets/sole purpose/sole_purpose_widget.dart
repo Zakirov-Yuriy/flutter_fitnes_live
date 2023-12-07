@@ -10,10 +10,15 @@ import 'package:flutter_fitnes_live/costom_icons.dart';
 
 // Виджет для отображения элемента выбора цели
 class SolePurposeWidget extends StatefulWidget {
-  final String labelText; // Текстовое описание цели
-  final String imagePath; // Путь к изображению цели
-  final bool isSelected; // Флаг выбора цели
-  final VoidCallback onTap; // Callback-функция при нажатии на виджет
+  final String labelText;
+  final String imagePath;
+  final bool isSelected;
+  final VoidCallback onTap;
+  final String additionalText;
+  final String additionalSubText;
+  final Color iconColor;
+  final Color textColor;
+  final IconData? customIcon; // Добавлен параметр для кастомной иконки
 
   SolePurposeWidget({
     Key? key,
@@ -21,13 +26,18 @@ class SolePurposeWidget extends StatefulWidget {
     required this.imagePath,
     required this.isSelected,
     required this.onTap,
+    this.additionalText = '',
+    this.iconColor = Colors.amber,
+    this.textColor = Colors.black,
+    this.customIcon,
+    required this.additionalSubText,
+    // Добавлен параметр
   }) : super(key: key);
 
   @override
   _SolePurposeWidgetState createState() => _SolePurposeWidgetState();
 }
 
-// Состояние виджета выбора цели
 class _SolePurposeWidgetState extends State<SolePurposeWidget> {
   @override
   Widget build(BuildContext context) {
@@ -84,14 +94,21 @@ class _SolePurposeWidgetState extends State<SolePurposeWidget> {
                 borderRadius: BorderRadius.circular(15),
                 color: const Color.fromRGBO(241, 244, 247, 1),
               ),
-              child: const Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Icon(
-                    CostomIcons.muscle_wd7nyxe8dhrx,
-                    color: Colors.amber,
-                    size: 50,
-                  ),
+                  if (widget.customIcon == null)
+                    Icon(
+                      CostomIcons.muscle_wd7nyxe8dhrx,
+                      color: widget.iconColor,
+                      size: 50,
+                    )
+                  else
+                    Icon(
+                      widget.customIcon,
+                      color: widget.iconColor,
+                      size: 50,
+                    ),
                   SizedBox(width: 20),
                   Expanded(
                     child: SingleChildScrollView(
@@ -99,15 +116,16 @@ class _SolePurposeWidgetState extends State<SolePurposeWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Пришло время стать сильнее!',
+                            widget.additionalText,
                             style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
+                              fontSize: 16,
+                              color: widget.textColor,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                           SizedBox(height: 5),
                           Text(
-                            'Ваш тренер поможет активировать каждую мышцу',
+                            widget.additionalSubText,
                             style: TextStyle(
                               fontSize: 16,
                               color: Colors.grey,

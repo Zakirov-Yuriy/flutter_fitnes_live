@@ -11,6 +11,7 @@ class QuestionAnswerWidget extends StatefulWidget {
   final IconData iconData; // Иконка для отображения варианта ответа
   final String labelText; // Текст варианта ответа
   final ValueChanged<bool>? onSelected; // Callback-функция для обработки выбора
+  final Color iconColor;
 
   // Конструктор с параметрами
   const QuestionAnswerWidget({
@@ -18,6 +19,7 @@ class QuestionAnswerWidget extends StatefulWidget {
     required this.iconData,
     required this.labelText,
     this.onSelected,
+    this.iconColor = Colors.black,
   }) : super(key: key);
 
   @override
@@ -62,7 +64,7 @@ class _QuestionAnswerWidgetState extends State<QuestionAnswerWidget> {
               child: Icon(
                 widget.iconData,
                 size: 30.0,
-                color: Colors.black,
+                color: widget.iconColor,
               ),
             ),
             const SizedBox(width: 10),
@@ -71,7 +73,7 @@ class _QuestionAnswerWidgetState extends State<QuestionAnswerWidget> {
                 widget.labelText,
                 style: TextStyle(
                   fontSize: 18.0,
-                  color: Colors.black,
+                  color: widget.iconColor,
                   fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
                 ),
               ),
@@ -81,7 +83,8 @@ class _QuestionAnswerWidgetState extends State<QuestionAnswerWidget> {
               isSelected
                   ? Icons.check_circle_outlined
                   : Icons.radio_button_unchecked,
-              color: isSelected ? Colors.black : Colors.grey,
+              color: isSelected ? widget.iconColor : Colors.grey,
+              size: 27,
             ),
           ],
         ),
