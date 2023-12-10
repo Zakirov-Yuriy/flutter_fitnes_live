@@ -5,7 +5,8 @@
 
 // Импорт необходимых библиотек
 import 'package:flutter/material.dart';
-import 'package:flutter_fitnes_live/screens/question_answer_screen.dart';
+
+import 'package:flutter_fitnes_live/screens/what_you_want_to_work_on.dart';
 
 // Класс для создания SmartExercise
 class SmartExercise extends StatelessWidget {
@@ -62,7 +63,8 @@ class SmartExercise extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => GoalScreen()),
+                      MaterialPageRoute(
+                          builder: (context) => WhatYouWantToWorkOn()),
                     );
                     // Добавьте код здесь для обработки нажатия кнопки
                   },
