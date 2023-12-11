@@ -22,7 +22,7 @@ class NextScreen extends StatelessWidget {
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image:
-                    AssetImage('assets/images/anna_photo.jpg'), //  Фотография
+                    AssetImage('assets/images/anna_photo.png'), //  Фотография
                 fit: BoxFit.cover,
               ),
             ),

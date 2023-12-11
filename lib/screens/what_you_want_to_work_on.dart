@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fitnes_live/screens/sole_purpose_screen.dart';
+import 'package:flutter_fitnes_live/screens/we_can_cope_screen.dart';
 import 'package:flutter_fitnes_live/widgets/what%20you%20want%20to%20work%20on/what_you_want_to_work_on_widget.dart';
 
 class WhatYouWantToWorkOn extends StatefulWidget {
@@ -8,17 +8,18 @@ class WhatYouWantToWorkOn extends StatefulWidget {
 }
 
 class _WhatYouWantToWorkOnState extends State<WhatYouWantToWorkOn> {
-  int completedAnswers = 0;
-  final String _labelTitle = 'Что хотите \nпроработать?';
+  int completedAnswers = 0; // Счетчик завершенных ответов
+  final String _labelTitle = 'Что хотите \nпроработать?'; // Заголовок экрана
 
-  List<bool> isSelectedList = List.generate(6, (index) => false);
-  bool isButtonEnabled = false;
+  List<bool> isSelectedList = List.generate(
+      6, (index) => false); // Список флагов выбора для различных частей тела
+  bool isButtonEnabled = false; // Флаг для активации/деактивации кнопки
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Цель'),
+        title: const Text('Цель'), // Заголовок верхней панели
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.white,
@@ -33,17 +34,21 @@ class _WhatYouWantToWorkOnState extends State<WhatYouWantToWorkOn> {
               _labelTitle,
               style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
-            ),
+            ), // Заголовок экрана
+
             SizedBox(height: 20.0),
+
             Row(
               children: [
                 Image.asset(
                   'assets/images/girl-with.png',
                   width: 222,
                   height: 490,
-                ),
+                ), // Изображение силуэта человека
+
                 Column(
                   children: [
+                    // Виджет для выбора "Руки"
                     WhatYouWantToWorkOnWidget(
                       labelText: 'Руки',
                       onSelected: (isSelected) =>
@@ -55,6 +60,8 @@ class _WhatYouWantToWorkOnState extends State<WhatYouWantToWorkOn> {
                       secondBallRadius: 5.0,
                     ),
                     SizedBox(height: 20.0),
+
+                    // Виджет для выбора "Грудь"
                     WhatYouWantToWorkOnWidget(
                       labelText: 'Грудь',
                       onSelected: (isSelected) =>
@@ -66,6 +73,8 @@ class _WhatYouWantToWorkOnState extends State<WhatYouWantToWorkOn> {
                       secondBallRadius: 5.0,
                     ),
                     SizedBox(height: 20.0),
+
+                    // Виджет для выбора "Живот"
                     WhatYouWantToWorkOnWidget(
                       labelText: 'Живот',
                       onSelected: (isSelected) =>
@@ -77,6 +86,8 @@ class _WhatYouWantToWorkOnState extends State<WhatYouWantToWorkOn> {
                       secondBallRadius: 5.0,
                     ),
                     SizedBox(height: 20.0),
+
+                    // Виджет для выбора "Ягодицы"
                     WhatYouWantToWorkOnWidget(
                       labelText: 'Ягодицы',
                       onSelected: (isSelected) =>
@@ -88,6 +99,8 @@ class _WhatYouWantToWorkOnState extends State<WhatYouWantToWorkOn> {
                       secondBallRadius: 5.0,
                     ),
                     SizedBox(height: 20.0),
+
+                    // Виджет для выбора "Икры"
                     WhatYouWantToWorkOnWidget(
                       labelText: 'Икры',
                       onSelected: (isSelected) =>
@@ -99,6 +112,8 @@ class _WhatYouWantToWorkOnState extends State<WhatYouWantToWorkOn> {
                       secondBallRadius: 5.0,
                     ),
                     SizedBox(height: 20.0),
+
+                    // Дополнительный вариант "Все тело" (закомментирован)
                     // WhatYouWantToWorkOnWidget(
                     //   labelText: 'Все тело',
                     //   onSelected: (isSelected) =>
@@ -113,13 +128,15 @@ class _WhatYouWantToWorkOnState extends State<WhatYouWantToWorkOn> {
                 ),
               ],
             ),
+
             SizedBox(height: 70.0),
+
             ElevatedButton(
               onPressed: isButtonEnabled
                   ? () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => SolePurpose()),
+                        MaterialPageRoute(builder: (context) => WeCanCope()),
                       );
                       setState(() {
                         completedAnswers++;
@@ -142,7 +159,7 @@ class _WhatYouWantToWorkOnState extends State<WhatYouWantToWorkOn> {
                   color: Colors.white,
                 ),
               ),
-            ),
+            ), // Кнопка для перехода на следующий экран
           ],
         ),
       ),
@@ -153,12 +170,14 @@ class _WhatYouWantToWorkOnState extends State<WhatYouWantToWorkOn> {
     setState(() {
       isSelectedList[index] = isSelected;
 
+      // Если выбран "Все тело", активируются все части тела
       if (index == 5 && isSelected) {
         for (int i = 0; i < isSelectedList.length - 1; i++) {
           isSelectedList[i] = true;
         }
       }
 
+      // Проверка, есть ли хотя бы один выбранный элемент
       isButtonEnabled = isSelectedList.any((isSelected) => isSelected);
     });
   }
