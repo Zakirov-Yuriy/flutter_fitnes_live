@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_fitnes_live/screens/sole_purpose_screen.dart';
+import 'package:flutter_fitnes_live/screens/indicate_your_height_screen.dart';
 
 // Основной класс виджета, представляющий экран ввода года рождения пользователя
 class EnterYourBirthday extends StatefulWidget {
@@ -107,7 +107,8 @@ class _EnterYourBirthdayState extends State<EnterYourBirthday> {
                   ? () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => SolePurpose()),
+                        MaterialPageRoute(
+                            builder: (context) => IndicateYourHeight()),
                       );
                       setState(() {
                         completedAnswers++;
