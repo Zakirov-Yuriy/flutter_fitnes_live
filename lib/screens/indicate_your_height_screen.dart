@@ -1,28 +1,21 @@
 /*Этот файл представляет собой виджет Flutter для создания экрана, на котором пользователь может указать свой рост. */
 
-// Импорт необходимых пакетов Flutter
 import 'package:flutter/material.dart';
-import 'package:flutter_fitnes_live/screens/sole_purpose_screen.dart';
+import 'package:flutter_fitnes_live/screens/how_much_you_weigh_screen.dart';
+
 import 'package:flutter_fitnes_live/widgets/indicate%20your%20height/height_ruler_feet_widget.dart';
 import 'package:flutter_fitnes_live/widgets/indicate%20your%20height/height_ruler_widget.dart';
 
-// Перечисление для единиц измерения
 enum MeasurementUnit { Centimeters, Feet }
 
-// Виджет для указания роста
 class IndicateYourHeight extends StatefulWidget {
   @override
   _IndicateYourHeightState createState() => _IndicateYourHeightState();
 }
 
 class _IndicateYourHeightState extends State<IndicateYourHeight> {
-  // Список флагов для кнопок выбора единиц измерения
   List<bool> isSelected = [true, false];
-
-  // Выбранная единица измерения
   MeasurementUnit selectedUnit = MeasurementUnit.Centimeters;
-
-  // Значение роста по умолчанию
   double heightValue = 140.0;
 
   @override
@@ -40,22 +33,20 @@ class _IndicateYourHeightState extends State<IndicateYourHeight> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // Заголовок
             Text(
               'Укажите свой рост',
               style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 30),
-            // Контейнер для кнопок выбора единиц измерения
             Container(
               height: 35,
               decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 230, 228, 228),
-                  borderRadius: BorderRadius.circular(30)),
+                color: const Color.fromARGB(255, 230, 228, 228),
+                borderRadius: BorderRadius.circular(30),
+              ),
               child: ToggleButtons(
                 children: [
-                  // Кнопка для сантиметров
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
@@ -79,7 +70,6 @@ class _IndicateYourHeightState extends State<IndicateYourHeight> {
                       ),
                     ),
                   ),
-                  // Кнопка для футов
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
@@ -125,7 +115,6 @@ class _IndicateYourHeightState extends State<IndicateYourHeight> {
               ),
             ),
             SizedBox(height: 20),
-            // Ряд для отображения линейки и изображения
             Container(
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -134,39 +123,44 @@ class _IndicateYourHeightState extends State<IndicateYourHeight> {
                   Expanded(
                     child: Stack(
                       children: [
-                        // Линейка в зависимости от выбранной единицы измерения
                         selectedUnit == MeasurementUnit.Centimeters
                             ? HeightRulerCentimeters(
                                 height: heightValue,
-                                onChanged: (value) {
-                                  setState(() {
-                                    heightValue = value;
-                                  });
-                                },
+                                onChanged: handleHeightChange,
                               )
                             : HeightRulerFeet(
                                 height: heightValue,
-                                onChanged: (value) {
-                                  setState(() {
-                                    heightValue = value;
-                                  });
-                                },
+                                onChanged: handleHeightChange,
                               ),
-                        // Горизонтальная линия
                         Positioned(
                           top: 60,
                           left: 50,
-                          right:
-                              -30, // Измените это значение, чтобы линия заходила на изображение
+                          right: -30,
                           child: Container(
-                            height: 3,
+                            height: 2,
                             color: Color.fromRGBO(255, 51, 119, 1),
+                          ),
+                        ),
+                        Positioned(
+                          top: 30,
+                          left: 113,
+                          child: Container(
+                            padding: EdgeInsets.only(right: 10),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Text(
+                              '$heightValue',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 30.0,
+                              ),
+                            ),
                           ),
                         ),
                       ],
                     ),
                   ),
-                  // Изображение с дополнительной горизонтальной линией
                   Stack(
                     children: [
                       Image.asset(
@@ -177,10 +171,9 @@ class _IndicateYourHeightState extends State<IndicateYourHeight> {
                       Positioned(
                         top: 0,
                         left: 0,
-                        right:
-                            105, // Измените это значение, чтобы линия заходила на изображение
+                        right: 125,
                         child: Container(
-                          height: 3,
+                          height: 2,
                           color: Color.fromRGBO(255, 51, 119, 1),
                         ),
                       ),
@@ -190,13 +183,13 @@ class _IndicateYourHeightState extends State<IndicateYourHeight> {
               ),
             ),
             SizedBox(height: 20),
-            // Кнопка для перехода на следующий экран
             ElevatedButton(
               onPressed: (isSelected[0] || isSelected[1])
                   ? () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => SolePurpose()),
+                        MaterialPageRoute(
+                            builder: (context) => HowMuchYouWeigh()),
                       );
                     }
                   : null,
@@ -221,5 +214,11 @@ class _IndicateYourHeightState extends State<IndicateYourHeight> {
         ),
       ),
     );
+  }
+
+  void handleHeightChange(double value) {
+    setState(() {
+      heightValue = value;
+    });
   }
 }

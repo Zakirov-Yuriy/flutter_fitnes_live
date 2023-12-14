@@ -17,18 +17,16 @@ class HeightRulerCentimeters extends StatelessWidget {
         itemBuilder: (context, index) {
           final value = 205 - index;
 
-          // Определить цвет и размер для цифр
           Color textColor = Colors.black;
           double fontSize = 16.0;
           Color lineColor = Colors.black;
           double lineWidth = 20.0;
 
           if (value % 10 != 0) {
-            // Изменить цвет и размер для значений, не заканчивающихся на 0
-            textColor = Colors.grey; // Измените на нужный цвет
-            fontSize = 10.0; // Измените на нужный размер
+            textColor = Colors.grey;
+            fontSize = 10.0;
             lineColor = Colors.grey;
-            lineWidth = 10; // Измените на нужный цвет линии
+            lineWidth = 10;
           }
 
           return GestureDetector(
@@ -36,6 +34,7 @@ class HeightRulerCentimeters extends StatelessWidget {
               if (onChanged != null) {
                 onChanged!(value.toDouble());
               }
+              onChanged?.call(value.toDouble());
             },
             child: Row(
               children: [

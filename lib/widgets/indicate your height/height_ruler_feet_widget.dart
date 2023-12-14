@@ -15,9 +15,8 @@ class HeightRulerFeet extends StatelessWidget {
         scrollDirection: Axis.vertical,
         itemCount: 100,
         itemBuilder: (context, index) {
-          final value = (205 - index) / 30.48; // Конвертируем в футы
+          final value = (205 - index) / 30.48;
 
-          // Определить цвет и размер для цифр
           Color textColor = index % 2 == 0 ? Colors.black : Colors.grey;
           double fontSize = index % 2 == 0 ? 16.0 : 10.0;
           Color lineColor = index % 2 == 0 ? Colors.black : Colors.grey;
@@ -28,6 +27,7 @@ class HeightRulerFeet extends StatelessWidget {
               if (onChanged != null) {
                 onChanged!(value.toDouble());
               }
+              onChanged?.call(value.toDouble());
             },
             child: Row(
               children: [
@@ -37,7 +37,7 @@ class HeightRulerFeet extends StatelessWidget {
                   alignment: Alignment.center,
                   color: Colors.transparent,
                   child: Text(
-                    '${value.toStringAsFixed(2)}', // Ограничиваем количество знаков после запятой
+                    '${value.toStringAsFixed(2)}',
                     style: TextStyle(
                       color: textColor,
                       fontSize: fontSize,
