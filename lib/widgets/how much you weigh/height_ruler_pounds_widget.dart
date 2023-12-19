@@ -13,14 +13,14 @@ class HeightRulerPounds extends StatefulWidget {
 
 class _HeightRulerPoundsState extends State<HeightRulerPounds> {
   double middleValue =
-      165; // Начальное значение в середине диапазона от 66 до 264
+      70; // Начальное значение в середине диапазона от 66 до 264
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Container(
-          height: 250,
+          height: 200,
           width: 300,
           child: Column(
             children: [

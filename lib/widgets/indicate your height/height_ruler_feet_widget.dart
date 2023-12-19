@@ -1,58 +1,125 @@
 import 'package:flutter/material.dart';
 
-class HeightRulerFeet extends StatelessWidget {
+class HeightRulerFeetVertical extends StatefulWidget {
   final double height;
   final ValueChanged<double>? onChanged;
 
-  HeightRulerFeet({required this.height, this.onChanged});
+  HeightRulerFeetVertical({required this.height, this.onChanged});
+
+  @override
+  _HeightRulerFeetVerticalState createState() =>
+      _HeightRulerFeetVerticalState();
+}
+
+class _HeightRulerFeetVerticalState extends State<HeightRulerFeetVertical> {
+  double middleValue =
+      7; // Начальное значение в середине диапазона от 7 до 0 футов
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 510,
-      width: 150,
-      child: ListView.builder(
-        scrollDirection: Axis.vertical,
-        itemCount: 100,
-        itemBuilder: (context, index) {
-          final value = (205 - index) / 30.48;
-
-          Color textColor = index % 2 == 0 ? Colors.black : Colors.grey;
-          double fontSize = index % 2 == 0 ? 16.0 : 10.0;
-          Color lineColor = index % 2 == 0 ? Colors.black : Colors.grey;
-          double lineWidth = index % 2 == 0 ? 20.0 : 10;
-
-          return GestureDetector(
-            onTap: () {
-              if (onChanged != null) {
-                onChanged!(value.toDouble());
-              }
-              onChanged?.call(value.toDouble());
-            },
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Text(
+            '${middleValue.toStringAsFixed(1)}',
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 35.0,
+            ),
+          ),
+          Container(
+            height: 450,
+            width: double.infinity,
             child: Row(
               children: [
-                Container(
-                  width: 30,
-                  height: 20,
-                  alignment: Alignment.center,
-                  color: Colors.transparent,
-                  child: Text(
-                    '${value.toStringAsFixed(2)}',
-                    style: TextStyle(
-                      color: textColor,
-                      fontSize: fontSize,
+                Expanded(
+                  child: NotificationListener<ScrollUpdateNotification>(
+                    onNotification: (notification) {
+                      setState(() {
+                        middleValue = (7 - (notification.metrics.pixels) / 200)
+                            .clamp(0.0, 7.0);
+                      });
+
+                      if (widget.onChanged != null) {
+                        widget.onChanged!(middleValue);
+                      }
+                      return true;
+                    },
+                    child: ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      itemCount: 70,
+                      itemBuilder: (context, index) {
+                        final value = (7 - index * 0.1).clamp(0.0, 7.0);
+
+                        Color textColor = Colors.black;
+                        double fontSize = 16.0;
+                        Color lineColor = Colors.black;
+                        double lineWidth = 20.0;
+
+                        if (index % 10 != 0) {
+                          textColor = Colors.grey;
+                          fontSize = 10.0;
+                          lineColor = Colors.grey;
+                          lineWidth = 10;
+                        }
+
+                        return GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              middleValue = value;
+                            });
+
+                            if (widget.onChanged != null) {
+                              widget.onChanged!(value);
+                            }
+                            widget.onChanged?.call(value);
+                          },
+                          child: Row(
+                            children: [
+                              Container(
+                                height: 20,
+                                alignment: Alignment.center,
+                                color: Colors.transparent,
+                                child: Text(
+                                  '${value.toStringAsFixed(1)}',
+                                  style: TextStyle(
+                                    color: textColor,
+                                    fontSize: fontSize,
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                height: 1,
+                                width: lineWidth,
+                                color: lineColor,
+                              ),
+                            ],
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ),
-                Container(
-                  width: lineWidth,
-                  height: 1,
-                  color: lineColor,
+                Column(
+                  children: [
+                    SizedBox(height: 10),
+                    Container(
+                      width: 175,
+                      height: 2,
+                      color: Color.fromRGBO(255, 51, 119, 1),
+                    ),
+                  ],
+                ),
+                Image.asset(
+                  'assets/images/girl-over.png',
+                  height: 420,
+                  fit: BoxFit.contain,
                 ),
               ],
             ),
-          );
-        },
+          ),
+        ],
       ),
     );
   }

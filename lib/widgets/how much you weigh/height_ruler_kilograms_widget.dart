@@ -12,14 +12,14 @@ class HeightRulerKilograms extends StatefulWidget {
 
 class _HeightRulerKilogramsState extends State<HeightRulerKilograms> {
   double middleValue =
-      75; // Начальное значение в середине диапазона от 30 до 120
+      34; // Начальное значение в середине диапазона от 30 до 120
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Container(
-          height: 250,
+          height: 200,
           width: 300,
           child: Column(
             children: [

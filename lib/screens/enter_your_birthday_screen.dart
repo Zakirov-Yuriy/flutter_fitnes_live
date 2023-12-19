@@ -108,7 +108,7 @@ class _EnterYourBirthdayState extends State<EnterYourBirthday> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => IndicateYourHeight()),
+                            builder: (context) => IndicateYourHeightScreen()),
                       );
                       setState(() {
                         completedAnswers++;

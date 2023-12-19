@@ -1,11 +1,82 @@
-/*Пользователь видит вопрос "Сколько вы весите?" и выбирает единицы измерения между килограммами (kg) и фунтами (ld). */
 import 'package:flutter/material.dart';
-import 'package:flutter_fitnes_live/screens/indicate_your_height_screen.dart';
+import 'package:flutter_fitnes_live/screens/mesmerizing_figure%20_screen.dart';
 import 'package:flutter_fitnes_live/widgets/how%20much%20you%20weigh/height_ruler_kilograms_widget.dart';
 import 'package:flutter_fitnes_live/widgets/how%20much%20you%20weigh/height_ruler_pounds_widget.dart';
 
-// Определение перечисления для единиц измерения
-enum MeasurementUnit { Centimeters, Feet }
+class BMIIndicator extends StatelessWidget {
+  final double bmi;
+
+  BMIIndicator({required this.bmi});
+
+  String getCategory(double bmi) {
+    if (bmi < 18.5) {
+      return 'Недостаточный вес. Измени вес с фитнес-приложением: трени, следи за прогрессом, достигай целей! 💪';
+    } else if (bmi >= 18.5 && bmi <= 24.9) {
+      return 'Нормальный вес. Поддерживаю! Изменяй вес с фитнес-приложением: тренируйся, достигай целей, обрети здоровье! 💪';
+    } else if (bmi >= 25.0 && bmi <= 29.9) {
+      return 'Избыточный вес. Победи избыточный вес! Фитнес-приложение - твой гид. Трени, достигай целей, обретай здоровье! 💪';
+    } else if (bmi >= 30.0 && bmi <= 34.9) {
+      return 'Ожирение I степени. Борись с ожирением I степени! Фитнес-приложение поможет. Тренируйся, преодолевай, стремись к здоровью! 💪';
+    } else if (bmi >= 35.0 && bmi <= 39.9) {
+      return 'Ожирение II степени. Побеждай ожирение II степени! Фитнес-приложение - твой путь. Тренируйся, стремись к здоровью, преодолевай! 💪';
+    } else {
+      return 'Ожирение III степени. Преодолей ожирение III степени! Фитнес-приложение - твой союзник. Тренируйся, стремись к здоровью, сила в движении! 💪';
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    String category = getCategory(bmi);
+
+    return Container(
+      width: double.infinity,
+      height: 150,
+      decoration: BoxDecoration(
+        color: Color.fromARGB(255, 230, 228, 228),
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      child: Column(
+        children: [
+          Padding(padding: EdgeInsets.only(top: 20)),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text(
+                'ТУКЕЩИЙ ИМТ:',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(width: 70),
+              Text(
+                bmi.toStringAsFixed(1),
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 28, 122, 199),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 10),
+          Row(
+            children: [
+              Flexible(
+                child: Text(
+                  textAlign: TextAlign.center,
+                  'У вас: $category',
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+enum MeasurementUnit { Kilograms, Pounds }
 
 class HowMuchYouWeigh extends StatefulWidget {
   @override
@@ -13,20 +84,17 @@ class HowMuchYouWeigh extends StatefulWidget {
 }
 
 class _HowMuchYouWeighState extends State<HowMuchYouWeigh> {
-  List<bool> isSelected = [
-    true,
-    false
-  ]; // Индикаторы выбора для кнопок "kg" и "ld"
-  MeasurementUnit selectedUnit =
-      MeasurementUnit.Centimeters; // Выбранная единица измерения
-  double weightValue = 60.0; // Исходное значение веса
+  List<bool> isSelected = [true, false];
+  MeasurementUnit selectedUnit = MeasurementUnit.Kilograms;
+  double weightValue = 60.0;
+  double heightValue = 1.75; // Пример значения роста (в метрах)
+  double bmiValue = 0.0; // Инициализация ИМТ
 
   @override
   Widget build(BuildContext context) {
-    // Создание основного интерфейса приложения
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Цель'),
+        title: const Text('Данные о теле'),
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.white,
@@ -37,14 +105,12 @@ class _HowMuchYouWeighState extends State<HowMuchYouWeigh> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // Заголовок вопроса о весе
             Text(
               'Сколько вы весите?',
               style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 30),
-            // Кнопки для выбора единиц измерения
             Container(
               height: 35,
               decoration: BoxDecoration(
@@ -65,26 +131,27 @@ class _HowMuchYouWeighState extends State<HowMuchYouWeigh> {
               ),
             ),
             SizedBox(height: 30),
-            // Вывод линейки в зависимости от выбранной единицы измерения
             buildSelectedRuler(),
             SizedBox(height: 20),
-            // Кнопка "СЛЕДУЮЩЕЕ"
+            BMIIndicator(bmi: bmiValue),
+            SizedBox(height: 140),
             ElevatedButton(
-              onPressed: (isSelected[0] || isSelected[1])
+              onPressed: (isSelected[0] || isSelected[1]) && bmiValue > 0
                   ? () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => IndicateYourHeight(),
+                          builder: (context) => MesmerizingFigure(),
                         ),
                       );
                     }
                   : null,
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 50),
-                backgroundColor: isSelected[0] || isSelected[1]
-                    ? const Color.fromRGBO(255, 51, 119, 1)
-                    : Colors.grey,
+                backgroundColor:
+                    (isSelected[0] || isSelected[1]) && bmiValue > 0
+                        ? const Color.fromRGBO(255, 51, 119, 1)
+                        : Colors.grey,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),
@@ -103,7 +170,6 @@ class _HowMuchYouWeighState extends State<HowMuchYouWeigh> {
     );
   }
 
-  // Создание кнопки для выбора единиц измерения
   Widget buildToggleButton(String label, int index) {
     return Container(
       decoration: BoxDecoration(
@@ -128,7 +194,6 @@ class _HowMuchYouWeighState extends State<HowMuchYouWeigh> {
     );
   }
 
-  // Обработка нажатия на кнопки выбора единиц измерения
   void handleToggleButtons(int index) {
     setState(() {
       for (int buttonIndex = 0;
@@ -136,31 +201,45 @@ class _HowMuchYouWeighState extends State<HowMuchYouWeigh> {
           buttonIndex++) {
         isSelected[buttonIndex] = buttonIndex == index;
       }
-
-      // Установка выбранной единицы измерения в зависимости от индекса кнопки
       selectedUnit =
-          index == 0 ? MeasurementUnit.Centimeters : MeasurementUnit.Feet;
+          index == 0 ? MeasurementUnit.Kilograms : MeasurementUnit.Pounds;
     });
   }
 
-  // Вывод линейки в зависимости от выбранной единицы измерения
   Widget buildSelectedRuler() {
-    if (selectedUnit == MeasurementUnit.Centimeters) {
-      return HeightRulerKilograms(
-        height: weightValue,
-        onChanged: handleWeightChange,
+    if (selectedUnit == MeasurementUnit.Kilograms) {
+      return Column(
+        children: [
+          HeightRulerKilograms(
+            height: weightValue,
+            onChanged: handleWeightChange,
+          ),
+        ],
       );
     } else {
-      return HeightRulerPounds(
-        weightInPounds: weightValue,
+      return Column(
+        children: [
+          HeightRulerPounds(
+            weightInPounds: weightValue,
+          ),
+        ],
       );
     }
   }
 
-  // Обработка изменения веса
   void handleWeightChange(double value) {
     setState(() {
       weightValue = value;
+    });
+
+    double bmi = weightValue / (heightValue * heightValue);
+
+    updateBMI(bmi);
+  }
+
+  void updateBMI(double bmi) {
+    setState(() {
+      bmiValue = bmi;
     });
   }
 }

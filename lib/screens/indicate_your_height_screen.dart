@@ -1,28 +1,24 @@
-/*Этот файл представляет собой виджет Flutter для создания экрана, на котором пользователь может указать свой рост. */
-
 import 'package:flutter/material.dart';
 import 'package:flutter_fitnes_live/screens/how_much_you_weigh_screen.dart';
-
+import 'package:flutter_fitnes_live/widgets/indicate%20your%20height/height_ruler_centimeters_widget.dart';
 import 'package:flutter_fitnes_live/widgets/indicate%20your%20height/height_ruler_feet_widget.dart';
-import 'package:flutter_fitnes_live/widgets/indicate%20your%20height/height_ruler_widget.dart';
 
-enum MeasurementUnit { Centimeters, Feet }
-
-class IndicateYourHeight extends StatefulWidget {
+class IndicateYourHeightScreen extends StatefulWidget {
   @override
-  _IndicateYourHeightState createState() => _IndicateYourHeightState();
+  _IndicateYourHeightScreenState createState() =>
+      _IndicateYourHeightScreenState();
 }
 
-class _IndicateYourHeightState extends State<IndicateYourHeight> {
-  List<bool> isSelected = [true, false];
-  MeasurementUnit selectedUnit = MeasurementUnit.Centimeters;
-  double heightValue = 140.0;
+class _IndicateYourHeightScreenState extends State<IndicateYourHeightScreen> {
+  double heightValue = 165.0; // Исходное значение роста
+  List<bool> isSelected = [true, false]; // Первая кнопка активна по умолчанию
+  bool isHeightSelected = false; // Переменная для отслеживания выбора роста
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Цель'),
+        title: const Text('Данные о теле'),
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.white,
@@ -34,7 +30,7 @@ class _IndicateYourHeightState extends State<IndicateYourHeight> {
         child: Column(
           children: [
             Text(
-              'Укажите свой рост',
+              'Каков ваш рост?',
               style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
@@ -47,155 +43,47 @@ class _IndicateYourHeightState extends State<IndicateYourHeight> {
               ),
               child: ToggleButtons(
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30),
-                        bottomLeft: Radius.circular(30),
-                        bottomRight: Radius.circular(30),
-                        topRight: Radius.circular(30),
-                      ),
-                      color: isSelected[0]
-                          ? const Color.fromRGBO(255, 51, 119, 1)
-                          : const Color.fromARGB(255, 230, 228, 228),
-                    ),
-                    width: 75,
-                    height: 35,
-                    alignment: Alignment.center,
-                    child: Text(
-                      'см',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: isSelected[0] ? Colors.white : Colors.black,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(30),
-                        bottomRight: Radius.circular(30),
-                        topLeft: Radius.circular(30),
-                        bottomLeft: Radius.circular(30),
-                      ),
-                      color: isSelected[1]
-                          ? const Color.fromRGBO(255, 51, 119, 1)
-                          : const Color.fromARGB(255, 230, 228, 228),
-                    ),
-                    width: 75,
-                    height: 35,
-                    alignment: Alignment.center,
-                    child: Text(
-                      'ft.',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: isSelected[1] ? Colors.white : Colors.black,
-                      ),
-                    ),
-                  ),
+                  buildToggleButton('cm', 0),
+                  buildToggleButton('ft', 1),
                 ],
                 isSelected: isSelected,
-                onPressed: (int index) {
-                  setState(() {
-                    for (int buttonIndex = 0;
-                        buttonIndex < isSelected.length;
-                        buttonIndex++) {
-                      isSelected[buttonIndex] = buttonIndex == index;
-                    }
-
-                    selectedUnit = index == 0
-                        ? MeasurementUnit.Centimeters
-                        : MeasurementUnit.Feet;
-                  });
-                },
+                onPressed: handleToggleButtons,
                 selectedColor: Colors.transparent,
                 fillColor: Colors.transparent,
                 borderColor: Colors.transparent,
                 borderWidth: 0,
               ),
             ),
-            SizedBox(height: 20),
-            Container(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  SizedBox(width: 10),
-                  Expanded(
-                    child: Stack(
-                      children: [
-                        selectedUnit == MeasurementUnit.Centimeters
-                            ? HeightRulerCentimeters(
-                                height: heightValue,
-                                onChanged: handleHeightChange,
-                              )
-                            : HeightRulerFeet(
-                                height: heightValue,
-                                onChanged: handleHeightChange,
-                              ),
-                        Positioned(
-                          top: 60,
-                          left: 50,
-                          right: -30,
-                          child: Container(
-                            height: 2,
-                            color: Color.fromRGBO(255, 51, 119, 1),
-                          ),
-                        ),
-                        Positioned(
-                          top: 30,
-                          left: 113,
-                          child: Container(
-                            padding: EdgeInsets.only(right: 10),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            child: Text(
-                              '$heightValue',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 30.0,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Stack(
-                    children: [
-                      Image.asset(
-                        'assets/images/girl-over.png',
-                        height: 450,
-                        fit: BoxFit.contain,
-                      ),
-                      Positioned(
-                        top: 0,
-                        left: 0,
-                        right: 125,
-                        child: Container(
-                          height: 2,
-                          color: Color.fromRGBO(255, 51, 119, 1),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+            SizedBox(height: 30),
+            Visibility(
+              visible: isSelected[0],
+              child: HeightRulerCentimetersVertical(
+                height: heightValue,
+                onChanged: handleHeightChange,
+              ),
+            ),
+            Visibility(
+              visible: isSelected[1],
+              child: HeightRulerFeetVertical(
+                height: heightValue,
+                onChanged: handleHeightChange,
               ),
             ),
             SizedBox(height: 20),
             ElevatedButton(
-              onPressed: (isSelected[0] || isSelected[1])
+              onPressed: isHeightSelected
                   ? () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => HowMuchYouWeigh()),
+                          builder: (context) => HowMuchYouWeigh(),
+                        ),
                       );
                     }
                   : null,
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 50),
-                backgroundColor: isSelected[0] || isSelected[1]
+                backgroundColor: isHeightSelected
                     ? const Color.fromRGBO(255, 51, 119, 1)
                     : Colors.grey,
                 shape: RoundedRectangleBorder(
@@ -219,6 +107,45 @@ class _IndicateYourHeightState extends State<IndicateYourHeight> {
   void handleHeightChange(double value) {
     setState(() {
       heightValue = value;
+      isHeightSelected = true;
     });
+  }
+
+  void handleToggleButtons(int index) {
+    setState(() {
+      for (int buttonIndex = 0;
+          buttonIndex < isSelected.length;
+          buttonIndex++) {
+        if (buttonIndex == index) {
+          isSelected[buttonIndex] = true;
+        } else {
+          isSelected[buttonIndex] = false;
+        }
+      }
+    });
+  }
+
+  Widget buildToggleButton(String label, int index) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.horizontal(
+          left: Radius.circular(30),
+          right: Radius.circular(30),
+        ),
+        color: isSelected[index]
+            ? const Color.fromRGBO(255, 51, 119, 1)
+            : const Color.fromARGB(255, 230, 228, 228),
+      ),
+      width: 75,
+      height: 35,
+      alignment: Alignment.center,
+      child: Text(
+        label,
+        style: TextStyle(
+          fontSize: 18,
+          color: isSelected[index] ? Colors.white : Colors.black,
+        ),
+      ),
+    );
   }
 }
