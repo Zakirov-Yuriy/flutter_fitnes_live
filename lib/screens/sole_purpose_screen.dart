@@ -64,7 +64,7 @@ class _SolePurposeState extends State<SolePurpose> {
                 additionalSubText: 'Путь к здоровому и активному образу жизни!',
                 customIcon: CostomIcons.sports_4fzqtvt977t1,
               ),
-              SizedBox(height: 25.0),
+              SizedBox(height: 5.0),
               SolePurposeWidget(
                 labelText: 'Нарастить мышечную массу',
                 imagePath: 'assets/images/snap2.png',
@@ -74,7 +74,7 @@ class _SolePurposeState extends State<SolePurpose> {
                 additionalSubText:
                     'Ваш тренер поможет активировать каждую мышцу!',
               ),
-              SizedBox(height: 25.0),
+              SizedBox(height: 5.0),
               SolePurposeWidget(
                 labelText: 'Быть в форме',
                 imagePath: 'assets/images/snap3.png',
@@ -91,7 +91,7 @@ class _SolePurposeState extends State<SolePurpose> {
       ),
       bottomNavigationBar: BottomAppBar(
         elevation: 0,
-        padding: EdgeInsets.only(bottom: 40),
+        padding: EdgeInsets.only(bottom: 10),
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
           child: ElevatedButton(

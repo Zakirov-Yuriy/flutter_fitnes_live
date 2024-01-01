@@ -30,7 +30,7 @@ class BMIIndicator extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      height: 150,
+      height: 180,
       decoration: BoxDecoration(
         color: Color.fromARGB(255, 230, 228, 228),
         borderRadius: BorderRadius.circular(15.0),

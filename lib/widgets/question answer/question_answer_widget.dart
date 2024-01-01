@@ -72,9 +72,8 @@ class _QuestionAnswerWidgetState extends State<QuestionAnswerWidget> {
               child: Text(
                 widget.labelText,
                 style: TextStyle(
-                  fontSize: 18.0,
+                  fontSize: 16.0,
                   color: widget.iconColor,
-                  fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
                 ),
               ),
             ),

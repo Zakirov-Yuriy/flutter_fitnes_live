@@ -48,3 +48,9 @@ app.*.symbols
 
 # Obfuscation related
 app.*.map.json
+
+# Visual Studio Code related
+.classpath
+.project
+.settings/
+.vscode/*
