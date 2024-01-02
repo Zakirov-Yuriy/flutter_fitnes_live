@@ -7,7 +7,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fitnes_live/costom_icons.dart';
 import 'package:flutter_fitnes_live/screens/smart_exercise_screen.dart';
-import 'package:flutter_fitnes_live/screens/widgets/sole%20purpose/sole_purpose_widget.dart';
+import 'package:flutter_fitnes_live/widgets/sole%20purpose/sole_purpose_widget.dart';
 
 // Виджет для экрана выбора главной цели
 class SolePurpose extends StatefulWidget {

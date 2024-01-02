@@ -2,7 +2,7 @@
 
 // Импорт необходимых библиотек и экрана-заставки
 import 'package:flutter/material.dart';
-import 'package:flutter_fitnes_live/screens/splash_screen.dart';
+import 'package:flutter_fitnes_live/widgets/splash_screen/splash_screen.dart';
 
 // Главная функция, запускающая приложение
 void main() {

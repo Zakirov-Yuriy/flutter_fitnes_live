@@ -7,7 +7,7 @@
 // Импорт необходимых библиотек и виджетов
 import 'package:flutter/material.dart';
 import 'package:flutter_fitnes_live/screens/sole_purpose_screen.dart';
-import 'package:flutter_fitnes_live/screens/widgets/question%20answer/question_answer_widget.dart';
+import 'package:flutter_fitnes_live/widgets/question%20answer/question_answer_widget.dart';
 
 // Основной виджет для экрана "Цель"
 class GoalScreen extends StatefulWidget {
