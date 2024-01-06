@@ -16,13 +16,13 @@ class NextScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          SizedBox(height: 40),
           // Фотография (занимает половину экрана)
           Container(
             height: MediaQuery.of(context).size.height / 2,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image:
-                    AssetImage('assets/images/anna_photo.png'), //  Фотография
+                image: AssetImage('assets/images/anna_photo.png'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -65,10 +65,18 @@ class NextScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(height: 80),
+              ],
+            ),
+          ),
 
-                // Кнопка "Начать"
-                ElevatedButton(
+          // Кнопка "Начать"
+          Expanded(
+            child: Align(
+              alignment: FractionalOffset.bottomCenter,
+              child: Padding(
+                padding:
+                    const EdgeInsets.only(bottom: 15.0, left: 16, right: 16),
+                child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -91,7 +99,7 @@ class NextScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-              ],
+              ),
             ),
           ),
         ],

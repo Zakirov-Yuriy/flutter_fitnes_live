@@ -133,32 +133,38 @@ class _WhatYouWantToWorkOnState extends State<WhatYouWantToWorkOn> {
 
             SizedBox(height: 10.0),
 
-            ElevatedButton(
-              onPressed: isButtonEnabled
-                  ? () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => WeCanCope()),
-                      );
-                      setState(() {
-                        completedAnswers++;
-                      });
-                    }
-                  : null,
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size(double.infinity, 50),
-                backgroundColor: isButtonEnabled
-                    ? const Color.fromRGBO(255, 51, 119, 1)
-                    : Colors.grey,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-              ),
-              child: Text(
-                'СЛЕДУЮЩЕЕ',
-                style: TextStyle(
-                  fontSize: 24.0,
-                  color: Colors.white,
+            Expanded(
+              child: Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: ElevatedButton(
+                  onPressed: isButtonEnabled
+                      ? () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => WeCanCope()),
+                          );
+                          setState(() {
+                            completedAnswers++;
+                          });
+                        }
+                      : null,
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(double.infinity, 50),
+                    backgroundColor: isButtonEnabled
+                        ? const Color.fromRGBO(255, 51, 119, 1)
+                        : Colors.grey,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                  child: Text(
+                    'СЛЕДУЮЩЕЕ',
+                    style: TextStyle(
+                      fontSize: 24.0,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
             ), // Кнопка для перехода на следующий экран

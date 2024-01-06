@@ -71,7 +71,7 @@ class _EnterYourBirthdayState extends State<EnterYourBirthday> {
 
             // Вращающийся барабан с годами
             Container(
-              height: 350,
+              height: 360,
               child: CupertinoPicker(
                 itemExtent: 60.0,
                 scrollController: FixedExtentScrollController(
@@ -102,33 +102,39 @@ class _EnterYourBirthdayState extends State<EnterYourBirthday> {
             SizedBox(height: 50.0),
 
             // Кнопка для перехода на следующий экран
-            ElevatedButton(
-              onPressed: isButtonEnabled
-                  ? () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => IndicateYourHeightScreen()),
-                      );
-                      setState(() {
-                        completedAnswers++;
-                      });
-                    }
-                  : null,
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size(double.infinity, 50),
-                backgroundColor: isButtonEnabled
-                    ? const Color.fromRGBO(255, 51, 119, 1)
-                    : Colors.grey,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-              ),
-              child: Text(
-                'СЛЕДУЮЩЕЕ',
-                style: TextStyle(
-                  fontSize: 24.0,
-                  color: Colors.white,
+            Expanded(
+              child: Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: ElevatedButton(
+                  onPressed: isButtonEnabled
+                      ? () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    IndicateYourHeightScreen()),
+                          );
+                          setState(() {
+                            completedAnswers++;
+                          });
+                        }
+                      : null,
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(double.infinity, 50),
+                    backgroundColor: isButtonEnabled
+                        ? const Color.fromRGBO(255, 51, 119, 1)
+                        : Colors.grey,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                  child: Text(
+                    'СЛЕДУЮЩЕЕ',
+                    style: TextStyle(
+                      fontSize: 24.0,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
             ), // Кнопка для перехода на следующий экран

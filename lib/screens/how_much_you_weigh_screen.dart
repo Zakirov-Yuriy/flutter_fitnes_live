@@ -30,7 +30,7 @@ class BMIIndicator extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      height: 180,
+      height: 200,
       decoration: BoxDecoration(
         color: Color.fromARGB(255, 230, 228, 228),
         borderRadius: BorderRadius.circular(15.0),
@@ -134,33 +134,37 @@ class _HowMuchYouWeighState extends State<HowMuchYouWeigh> {
             buildSelectedRuler(),
             SizedBox(height: 20),
             BMIIndicator(bmi: bmiValue),
-            SizedBox(height: 90),
-            ElevatedButton(
-              onPressed: (isSelected[0] || isSelected[1]) && bmiValue > 0
-                  ? () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => MesmerizingFigure(),
-                        ),
-                      );
-                    }
-                  : null,
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size(double.infinity, 50),
-                backgroundColor:
-                    (isSelected[0] || isSelected[1]) && bmiValue > 0
-                        ? const Color.fromRGBO(255, 51, 119, 1)
-                        : Colors.grey,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-              ),
-              child: Text(
-                'СЛЕДУЮЩЕЕ',
-                style: TextStyle(
-                  fontSize: 24.0,
-                  color: Colors.white,
+            Expanded(
+              child: Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: ElevatedButton(
+                  onPressed: (isSelected[0] || isSelected[1]) && bmiValue > 0
+                      ? () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MesmerizingFigure(),
+                            ),
+                          );
+                        }
+                      : null,
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(double.infinity, 50),
+                    backgroundColor:
+                        (isSelected[0] || isSelected[1]) && bmiValue > 0
+                            ? const Color.fromRGBO(255, 51, 119, 1)
+                            : Colors.grey,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                  child: Text(
+                    'СЛЕДУЮЩЕЕ',
+                    style: TextStyle(
+                      fontSize: 24.0,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
             ),

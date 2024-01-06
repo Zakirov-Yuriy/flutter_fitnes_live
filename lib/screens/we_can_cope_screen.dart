@@ -53,12 +53,18 @@ class WeCanCope extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(height: 30),
                 Image.asset('assets/images/calendar.png'),
-
-                const SizedBox(height: 20),
-
-                // Кнопка "Начать"
-                ElevatedButton(
+              ],
+            ),
+          ),
+          Expanded(
+            child: Align(
+              alignment: FractionalOffset.bottomCenter,
+              child: Padding(
+                padding:
+                    const EdgeInsets.only(bottom: 15.0, left: 16, right: 16),
+                child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -82,7 +88,7 @@ class WeCanCope extends StatelessWidget {
                     ),
                   ),
                 ),
-              ],
+              ),
             ),
           ),
         ],

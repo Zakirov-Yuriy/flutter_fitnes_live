@@ -19,7 +19,7 @@ class SmartExercise extends StatelessWidget {
         children: [
           // Фотография (занимает половину экрана)
           Container(
-            margin: EdgeInsets.only(top: 30),
+            margin: EdgeInsets.only(top: 40),
             height: MediaQuery.of(context).size.height / 2,
             decoration: const BoxDecoration(
               image: DecorationImage(
@@ -43,7 +43,7 @@ class SmartExercise extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 16.0),
+                const SizedBox(height: 26.0),
                 RichText(
                   textAlign: TextAlign.center,
                   text: const TextSpan(
@@ -56,10 +56,17 @@ class SmartExercise extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(height: 50),
-
-                // Кнопка "Начать"
-                ElevatedButton(
+                // const SizedBox(height: 50),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Align(
+              alignment: FractionalOffset.bottomCenter,
+              child: Padding(
+                padding:
+                    const EdgeInsets.only(bottom: 15.0, left: 16, right: 16),
+                child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -83,7 +90,7 @@ class SmartExercise extends StatelessWidget {
                     ),
                   ),
                 ),
-              ],
+              ),
             ),
           ),
         ],

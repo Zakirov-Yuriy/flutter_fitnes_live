@@ -49,10 +49,16 @@ class MesmerizingFigure extends StatelessWidget {
                       ],
                     ),
                   ),
-
-                  SizedBox(height: 35),
-                  // Кнопка "Начать"
-                  ElevatedButton(
+                ],
+              ),
+            ),
+            Expanded(
+              child: Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: Padding(
+                  padding:
+                      const EdgeInsets.only(bottom: 15.0, left: 16, right: 16),
+                  child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -69,14 +75,14 @@ class MesmerizingFigure extends StatelessWidget {
                       ),
                     ),
                     child: const Text(
-                      'НАЧАТЬ ЗАНЯТИЯ',
+                      'НАЧАТЬ', // Текст кнопки "НАЧАТЬ" прописан заглавными буквами
                       style: TextStyle(
                         fontSize: 24.0,
                         color: Colors.white,
                       ),
                     ),
                   ),
-                ],
+                ),
               ),
             ),
           ],
