@@ -46,90 +46,92 @@ class _WhatYouWantToWorkOnState extends State<WhatYouWantToWorkOn> {
                   height: 490,
                 ), // Изображение силуэта человека
 
-                Column(
-                  children: [
-                    // Виджет для выбора "Руки"
-                    WhatYouWantToWorkOnWidget(
-                      labelText: 'Руки',
-                      onSelected: (isSelected) =>
-                          updateButtonState(isSelected, 0),
-                      startPoint: Offset(0, 30),
-                      endPoint: Offset(-100, 30),
-                      ballRadius: 0.0,
-                      secondLineEnd: Offset(-110, 85),
-                      secondBallRadius: 5.0,
-                    ),
-                    SizedBox(height: 20.0),
+                Expanded(
+                  child: Column(
+                    children: [
+                      // Виджет для выбора "Руки"
+                      WhatYouWantToWorkOnWidget(
+                        labelText: 'Руки',
+                        onSelected: (isSelected) =>
+                            updateButtonState(isSelected, 0),
+                        startPoint: Offset(0, 30),
+                        endPoint: Offset(-100, 30),
+                        ballRadius: 0.0,
+                        secondLineEnd: Offset(-110, 85),
+                        secondBallRadius: 5.0,
+                      ),
+                      SizedBox(height: 20.0),
 
-                    // Виджет для выбора "Грудь"
-                    WhatYouWantToWorkOnWidget(
-                      labelText: 'Грудь',
-                      onSelected: (isSelected) =>
-                          updateButtonState(isSelected, 1),
-                      startPoint: Offset(30, 30),
-                      endPoint: Offset(-60, 50),
-                      ballRadius: 0.0,
-                      secondLineEnd: Offset(-150, 30),
-                      secondBallRadius: 5.0,
-                    ),
-                    SizedBox(height: 20.0),
+                      // Виджет для выбора "Грудь"
+                      WhatYouWantToWorkOnWidget(
+                        labelText: 'Грудь',
+                        onSelected: (isSelected) =>
+                            updateButtonState(isSelected, 1),
+                        startPoint: Offset(30, 30),
+                        endPoint: Offset(-60, 50),
+                        ballRadius: 0.0,
+                        secondLineEnd: Offset(-150, 30),
+                        secondBallRadius: 5.0,
+                      ),
+                      SizedBox(height: 20.0),
 
-                    // Виджет для выбора "Живот"
-                    WhatYouWantToWorkOnWidget(
-                      labelText: 'Живот',
-                      onSelected: (isSelected) =>
-                          updateButtonState(isSelected, 2),
-                      startPoint: Offset(10, 10),
-                      endPoint: Offset(-20, 20),
-                      ballRadius: 5.0,
-                      secondLineEnd: Offset(-145, -10),
-                      secondBallRadius: 5.0,
-                    ),
-                    SizedBox(height: 20.0),
+                      // Виджет для выбора "Живот"
+                      WhatYouWantToWorkOnWidget(
+                        labelText: 'Живот',
+                        onSelected: (isSelected) =>
+                            updateButtonState(isSelected, 2),
+                        startPoint: Offset(10, 10),
+                        endPoint: Offset(-20, 20),
+                        ballRadius: 5.0,
+                        secondLineEnd: Offset(-145, -10),
+                        secondBallRadius: 5.0,
+                      ),
+                      SizedBox(height: 20.0),
 
-                    // Виджет для выбора "Ягодицы"
-                    WhatYouWantToWorkOnWidget(
-                      labelText: 'Ягодицы',
-                      onSelected: (isSelected) =>
-                          updateButtonState(isSelected, 3),
-                      startPoint: Offset(40, 30),
-                      endPoint: Offset(-20, 20),
-                      ballRadius: 5.0,
-                      secondLineEnd: Offset(-105, -70),
-                      secondBallRadius: 5.0,
-                    ),
-                    SizedBox(height: 20.0),
+                      // Виджет для выбора "Ягодицы"
+                      WhatYouWantToWorkOnWidget(
+                        labelText: 'Ягодицы',
+                        onSelected: (isSelected) =>
+                            updateButtonState(isSelected, 3),
+                        startPoint: Offset(40, 30),
+                        endPoint: Offset(-20, 20),
+                        ballRadius: 5.0,
+                        secondLineEnd: Offset(-105, -70),
+                        secondBallRadius: 5.0,
+                      ),
+                      SizedBox(height: 20.0),
 
-                    // Виджет для выбора "Икры"
-                    WhatYouWantToWorkOnWidget(
-                      labelText: 'Икры',
-                      onSelected: (isSelected) =>
-                          updateButtonState(isSelected, 4),
-                      startPoint: Offset(10, 30),
-                      endPoint: Offset(-50, -22),
-                      ballRadius: 5.0,
-                      secondLineEnd: Offset(-150, 10),
-                      secondBallRadius: 5.0,
-                    ),
-                    SizedBox(height: 20.0),
+                      // Виджет для выбора "Икры"
+                      WhatYouWantToWorkOnWidget(
+                        labelText: 'Икры',
+                        onSelected: (isSelected) =>
+                            updateButtonState(isSelected, 4),
+                        startPoint: Offset(10, 30),
+                        endPoint: Offset(-50, -22),
+                        ballRadius: 5.0,
+                        secondLineEnd: Offset(-150, 10),
+                        secondBallRadius: 5.0,
+                      ),
+                      SizedBox(height: 20.0),
 
-                    // Дополнительный вариант "Все тело" (закомментирован)
-                    // WhatYouWantToWorkOnWidget(
-                    //   labelText: 'Все тело',
-                    //   onSelected: (isSelected) =>
-                    //       updateButtonState(isSelected, 5),
-                    //   startPoint: Offset(0, 0),
-                    //   endPoint: Offset(0, 0),
-                    //   ballRadius: 0.0,
-                    //   secondLineEnd: Offset(0, 0),
-                    //   secondBallRadius: 0,
-                    // ),
-                  ],
+                      // Дополнительный вариант "Все тело" (закомментирован)
+                      // WhatYouWantToWorkOnWidget(
+                      //   labelText: 'Все тело',
+                      //   onSelected: (isSelected) =>
+                      //       updateButtonState(isSelected, 5),
+                      //   startPoint: Offset(0, 0),
+                      //   endPoint: Offset(0, 0),
+                      //   ballRadius: 0.0,
+                      //   secondLineEnd: Offset(0, 0),
+                      //   secondBallRadius: 0,
+                      // ),
+                    ],
+                  ),
                 ),
               ],
             ),
 
-            SizedBox(height: 70.0),
+            SizedBox(height: 10.0),
 
             ElevatedButton(
               onPressed: isButtonEnabled

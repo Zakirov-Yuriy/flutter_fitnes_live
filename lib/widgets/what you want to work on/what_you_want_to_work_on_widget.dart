@@ -101,7 +101,7 @@ class _WhatYouWantToWorkOnWidgetState extends State<WhatYouWantToWorkOnWidget> {
         child: Container(
           height: 65,
           width: 157,
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(7),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             border: Border.all(
@@ -117,7 +117,7 @@ class _WhatYouWantToWorkOnWidgetState extends State<WhatYouWantToWorkOnWidget> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const SizedBox(width: 10),
+              // const SizedBox(width: 10),
               Expanded(
                 child: Text(
                   widget.labelText,
@@ -129,7 +129,7 @@ class _WhatYouWantToWorkOnWidgetState extends State<WhatYouWantToWorkOnWidget> {
                   ),
                 ),
               ),
-              const SizedBox(width: 20),
+              // const SizedBox(width: 5),
               Icon(
                 isSelected
                     ? Icons.check_circle_outlined

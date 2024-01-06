@@ -85,46 +85,76 @@ class _SolePurposeState extends State<SolePurpose> {
                     'Добро пожаловать в мир здоровья и активности!',
                 customIcon: CostomIcons.success_ifcteb55zwwt,
               ),
+              ElevatedButton(
+                onPressed: isButtonEnabled
+                    ? () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SmartExercise()),
+                        );
+                        setState(() {
+                          completedAnswers++;
+                        });
+                      }
+                    : null,
+                style: ElevatedButton.styleFrom(
+                  minimumSize: const Size(double.infinity, 50),
+                  backgroundColor: isButtonEnabled
+                      ? const Color.fromRGBO(255, 51, 119, 1)
+                      : Colors.grey,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                ),
+                child: Text(
+                  'СЛЕДУЮЩЕЕ',
+                  style: TextStyle(
+                    fontSize: 24.0,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        elevation: 0,
-        padding: EdgeInsets.only(bottom: 10),
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-          child: ElevatedButton(
-            onPressed: isButtonEnabled
-                ? () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SmartExercise()),
-                    );
-                    setState(() {
-                      completedAnswers++;
-                    });
-                  }
-                : null,
-            style: ElevatedButton.styleFrom(
-              minimumSize: const Size(double.infinity, 50),
-              backgroundColor: isButtonEnabled
-                  ? const Color.fromRGBO(255, 51, 119, 1)
-                  : Colors.grey,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
-              ),
-            ),
-            child: Text(
-              'СЛЕДУЮЩЕЕ',
-              style: TextStyle(
-                fontSize: 24.0,
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ),
-      ),
+      // bottomNavigationBar: BottomAppBar(
+      //   elevation: 0,
+      //   padding: EdgeInsets.only(bottom: 10),
+      //   child: Container(
+      //     padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      //     child: ElevatedButton(
+      //       onPressed: isButtonEnabled
+      //           ? () {
+      //               Navigator.push(
+      //                 context,
+      //                 MaterialPageRoute(builder: (context) => SmartExercise()),
+      //               );
+      //               setState(() {
+      //                 completedAnswers++;
+      //               });
+      //             }
+      //           : null,
+      //       style: ElevatedButton.styleFrom(
+      //         minimumSize: const Size(double.infinity, 50),
+      //         backgroundColor: isButtonEnabled
+      //             ? const Color.fromRGBO(255, 51, 119, 1)
+      //             : Colors.grey,
+      //         shape: RoundedRectangleBorder(
+      //           borderRadius: BorderRadius.circular(30),
+      //         ),
+      //       ),
+      //       child: Text(
+      //         'СЛЕДУЮЩЕЕ',
+      //         style: TextStyle(
+      //           fontSize: 24.0,
+      //           color: Colors.white,
+      //         ),
+      //       ),
+      //     ),
+      //   ),
+      // ),
     );
   }
 }

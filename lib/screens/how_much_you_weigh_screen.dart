@@ -134,7 +134,7 @@ class _HowMuchYouWeighState extends State<HowMuchYouWeigh> {
             buildSelectedRuler(),
             SizedBox(height: 20),
             BMIIndicator(bmi: bmiValue),
-            SizedBox(height: 140),
+            SizedBox(height: 90),
             ElevatedButton(
               onPressed: (isSelected[0] || isSelected[1]) && bmiValue > 0
                   ? () {

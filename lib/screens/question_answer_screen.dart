@@ -77,7 +77,7 @@ class _GoalScreenState extends State<GoalScreen> {
               labelText: 'Набрать форму',
               onSelected: (isSelected) => updateButtonState(isSelected),
             ),
-            SizedBox(height: 55.0),
+            SizedBox(height: 10.0),
             // Виджет "Поднятая кнопка" для перехода к следующему вопросу
             ElevatedButton(
               onPressed: isButtonEnabled

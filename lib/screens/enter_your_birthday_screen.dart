@@ -71,7 +71,7 @@ class _EnterYourBirthdayState extends State<EnterYourBirthday> {
 
             // Вращающийся барабан с годами
             Container(
-              height: 400,
+              height: 350,
               child: CupertinoPicker(
                 itemExtent: 60.0,
                 scrollController: FixedExtentScrollController(

@@ -38,7 +38,7 @@ class _HeightRulerCentimetersVerticalState
           ),
           // Внутренний контейнер содержит линейку и изображение.
           Container(
-            height: 450,
+            height: 400,
             width: double.infinity,
             child: Row(
               children: [
@@ -131,7 +131,7 @@ class _HeightRulerCentimetersVerticalState
                     SizedBox(height: 10),
                     // Дополнительный контейнер с двумя виджетами, представляющими декоративные элементы.
                     Container(
-                      width: 175,
+                      width: 140,
                       height: 2,
                       color: Color.fromRGBO(255, 51, 119, 1),
                     ),
