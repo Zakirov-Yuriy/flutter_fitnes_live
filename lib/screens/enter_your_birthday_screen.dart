@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_fitnes_live/screens/indicate_your_height_screen.dart';
 
+import '../widgets/button/next_button.dart';
+
 // Основной класс виджета, представляющий экран ввода года рождения пользователя
 class EnterYourBirthday extends StatefulWidget {
   @override
@@ -102,42 +104,62 @@ class _EnterYourBirthdayState extends State<EnterYourBirthday> {
             SizedBox(height: 50.0),
 
             // Кнопка для перехода на следующий экран
-            Expanded(
-              child: Align(
-                alignment: FractionalOffset.bottomCenter,
-                child: ElevatedButton(
-                  onPressed: isButtonEnabled
-                      ? () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    IndicateYourHeightScreen()),
-                          );
-                          setState(() {
-                            completedAnswers++;
-                          });
-                        }
-                      : null,
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(double.infinity, 50),
-                    backgroundColor: isButtonEnabled
-                        ? const Color.fromRGBO(255, 51, 119, 1)
-                        : Colors.grey,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  ),
-                  child: Text(
-                    'СЛЕДУЮЩЕЕ',
-                    style: TextStyle(
-                      fontSize: 24.0,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-            ), // Кнопка для перехода на следующий экран
+            NextCustomButtonWidget(
+              buttonText: 'СЛЕДУЮЩЕЕ',
+              destinationWidget: IndicateYourHeightScreen(),
+              completedAnswers: completedAnswers,
+              onPressed: isButtonEnabled
+                  ? () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => IndicateYourHeightScreen()),
+                      );
+                      setState(() {
+                        completedAnswers++;
+                      });
+                    }
+                  : null,
+            ),
+            // Expanded(
+            //   child: Align(
+            //     alignment: FractionalOffset.bottomCenter,
+            //     child: ElevatedButton(
+            //       onPressed: isButtonEnabled
+            //           ? () {
+            //               Navigator.push(
+            //                 context,
+            //                 MaterialPageRoute(
+            //                     builder: (context) =>
+            //                         IndicateYourHeightScreen()),
+            //               );
+            //               setState(() {
+            //                 completedAnswers++;
+            //               });
+            //             }
+            //           : null,
+            //       style: ElevatedButton.styleFrom(
+            //         minimumSize: const Size(double.infinity, 50),
+            //         backgroundColor: isButtonEnabled
+            //             ? const Color.fromRGBO(255, 51, 119, 1)
+            //             : Colors.grey,
+            //         shape: RoundedRectangleBorder(
+            //           borderRadius: BorderRadius.circular(30),
+            //         ),
+            //       ),
+            //       child: Text(
+            //         'СЛЕДУЮЩЕЕ',
+            //         style: TextStyle(
+            //           fontSize: 24.0,
+            //           color: Colors.white,
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
+            //
+            //
+            //// Кнопка для перехода на следующий экран
           ],
         ),
       ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fitnes_live/screens/we_can_cope_screen.dart';
 import 'package:flutter_fitnes_live/widgets/what%20you%20want%20to%20work%20on/what_you_want_to_work_on_widget.dart';
 
+import '../widgets/button/next_button.dart';
+
 class WhatYouWantToWorkOn extends StatefulWidget {
   @override
   _WhatYouWantToWorkOnState createState() => _WhatYouWantToWorkOnState();
@@ -132,42 +134,58 @@ class _WhatYouWantToWorkOnState extends State<WhatYouWantToWorkOn> {
             ),
 
             SizedBox(height: 10.0),
-
-            Expanded(
-              child: Align(
-                alignment: FractionalOffset.bottomCenter,
-                child: ElevatedButton(
-                  onPressed: isButtonEnabled
-                      ? () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => WeCanCope()),
-                          );
-                          setState(() {
-                            completedAnswers++;
-                          });
-                        }
-                      : null,
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(double.infinity, 50),
-                    backgroundColor: isButtonEnabled
-                        ? const Color.fromRGBO(255, 51, 119, 1)
-                        : Colors.grey,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  ),
-                  child: Text(
-                    'СЛЕДУЮЩЕЕ',
-                    style: TextStyle(
-                      fontSize: 24.0,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-            ), // Кнопка для перехода на следующий экран
+            NextCustomButtonWidget(
+              buttonText: 'СЛЕДУЮЩЕЕ',
+              destinationWidget: WeCanCope(),
+              completedAnswers: completedAnswers,
+              onPressed: isButtonEnabled
+                  ? () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => WeCanCope()),
+                      );
+                      setState(() {
+                        completedAnswers++;
+                      });
+                    }
+                  : null,
+            ),
+            // Expanded(
+            //   child: Align(
+            //     alignment: FractionalOffset.bottomCenter,
+            //     child: ElevatedButton(
+            //       onPressed: isButtonEnabled
+            //           ? () {
+            //               Navigator.push(
+            //                 context,
+            //                 MaterialPageRoute(
+            //                     builder: (context) => WeCanCope()),
+            //               );
+            //               setState(() {
+            //                 completedAnswers++;
+            //               });
+            //             }
+            //           : null,
+            //       style: ElevatedButton.styleFrom(
+            //         minimumSize: const Size(double.infinity, 50),
+            //         backgroundColor: isButtonEnabled
+            //             ? const Color.fromRGBO(255, 51, 119, 1)
+            //             : Colors.grey,
+            //         shape: RoundedRectangleBorder(
+            //           borderRadius: BorderRadius.circular(30),
+            //         ),
+            //       ),
+            //       child: Text(
+            //         'СЛЕДУЮЩЕЕ',
+            //         style: TextStyle(
+            //           fontSize: 24.0,
+            //           color: Colors.white,
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
+            //// Кнопка для перехода на следующий экран
           ],
         ),
       ),

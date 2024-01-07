@@ -89,7 +89,7 @@ class _SolePurposeWidgetState extends State<SolePurposeWidget> {
           const SizedBox(height: 10),
           if (widget.isSelected)
             Container(
-              padding: const EdgeInsets.all(3),
+              padding: const EdgeInsets.all(7),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 color: const Color.fromRGBO(241, 244, 247, 1),

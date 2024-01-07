@@ -9,6 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fitnes_live/screens/sole_purpose_screen.dart';
 import 'package:flutter_fitnes_live/widgets/question%20answer/question_answer_widget.dart';
 
+import '../widgets/button/next_button.dart';
+import '../widgets/button/start_button.dart';
+
 // Основной виджет для экрана "Цель"
 class GoalScreen extends StatefulWidget {
   @override
@@ -80,41 +83,57 @@ class _GoalScreenState extends State<GoalScreen> {
             SizedBox(height: 10.0),
             // Виджет "Поднятая кнопка" для перехода к следующему вопросу
 
-            Expanded(
-              child: Align(
-                alignment: FractionalOffset.bottomCenter,
-                child: ElevatedButton(
-                  onPressed: isButtonEnabled
-                      ? () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SolePurpose()),
-                          );
-                          setState(() {
-                            completedAnswers++;
-                          });
-                        }
-                      : null,
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(double.infinity, 50),
-                    backgroundColor: isButtonEnabled
-                        ? const Color.fromRGBO(255, 51, 119, 1)
-                        : Colors.grey,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  ),
-                  child: Text(
-                    'СЛЕДУЮЩЕЕ',
-                    style: TextStyle(
-                      fontSize: 24.0,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
+            NextCustomButtonWidget(
+              buttonText: 'СЛЕДУЮЩЕЕ',
+              destinationWidget: SolePurpose(),
+              completedAnswers: completedAnswers,
+              onPressed: isButtonEnabled
+                  ? () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SolePurpose()),
+                      );
+                      setState(() {
+                        completedAnswers++;
+                      });
+                    }
+                  : null,
             ),
+            // Expanded(
+            //   child: Align(
+            //     alignment: FractionalOffset.bottomCenter,
+            //     child: ElevatedButton(
+            //       onPressed: isButtonEnabled
+            //           ? () {
+            //               Navigator.push(
+            //                 context,
+            //                 MaterialPageRoute(
+            //                     builder: (context) => SolePurpose()),
+            //               );
+            //               setState(() {
+            //                 completedAnswers++;
+            //               });
+            //             }
+            //           : null,
+            //       style: ElevatedButton.styleFrom(
+            //         minimumSize: const Size(double.infinity, 50),
+            //         backgroundColor: isButtonEnabled
+            //             ? const Color.fromRGBO(255, 51, 119, 1)
+            //             : Colors.grey,
+            //         shape: RoundedRectangleBorder(
+            //           borderRadius: BorderRadius.circular(30),
+            //         ),
+            //       ),
+            //       child: Text(
+            //         'СЛЕДУЮЩЕЕ',
+            //         style: TextStyle(
+            //           fontSize: 24.0,
+            //           color: Colors.white,
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),

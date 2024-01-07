@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_fitnes_live/screens/what_you_want_to_work_on.dart';
 
+import '../widgets/button/start_button.dart';
+
 // Класс для создания SmartExercise
 class SmartExercise extends StatelessWidget {
   @override
@@ -60,39 +62,43 @@ class SmartExercise extends StatelessWidget {
               ],
             ),
           ),
-          Expanded(
-            child: Align(
-              alignment: FractionalOffset.bottomCenter,
-              child: Padding(
-                padding:
-                    const EdgeInsets.only(bottom: 15.0, left: 16, right: 16),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => WhatYouWantToWorkOn()),
-                    );
-                    // Добавьте код здесь для обработки нажатия кнопки
-                  },
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(double.infinity, 50),
-                    backgroundColor: const Color.fromRGBO(255, 51, 119, 1),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  ),
-                  child: const Text(
-                    'НАЧАТЬ', // Текст кнопки "НАЧАТЬ" прописан заглавными буквами
-                    style: TextStyle(
-                      fontSize: 24.0,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+          StartCustomButtonWidget(
+            buttonText: 'НАЧАТЬ',
+            destinationWidget: WhatYouWantToWorkOn(),
           ),
+          // Expanded(
+          //   child: Align(
+          //     alignment: FractionalOffset.bottomCenter,
+          //     child: Padding(
+          //       padding:
+          //           const EdgeInsets.only(bottom: 15.0, left: 16, right: 16),
+          //       child: ElevatedButton(
+          //         onPressed: () {
+          //           Navigator.push(
+          //             context,
+          //             MaterialPageRoute(
+          //                 builder: (context) => WhatYouWantToWorkOn()),
+          //           );
+          //           // Добавьте код здесь для обработки нажатия кнопки
+          //         },
+          //         style: ElevatedButton.styleFrom(
+          //           minimumSize: const Size(double.infinity, 50),
+          //           backgroundColor: const Color.fromRGBO(255, 51, 119, 1),
+          //           shape: RoundedRectangleBorder(
+          //             borderRadius: BorderRadius.circular(30),
+          //           ),
+          //         ),
+          //         child: const Text(
+          //           'НАЧАТЬ', // Текст кнопки "НАЧАТЬ" прописан заглавными буквами
+          //           style: TextStyle(
+          //             fontSize: 24.0,
+          //             color: Colors.white,
+          //           ),
+          //         ),
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );

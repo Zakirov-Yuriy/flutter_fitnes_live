@@ -3,6 +3,8 @@ import 'package:flutter_fitnes_live/screens/mesmerizing_figure%20_screen.dart';
 import 'package:flutter_fitnes_live/widgets/how%20much%20you%20weigh/height_ruler_kilograms_widget.dart';
 import 'package:flutter_fitnes_live/widgets/how%20much%20you%20weigh/height_ruler_pounds_widget.dart';
 
+import '../widgets/button/next_how_button.dart';
+
 class BMIIndicator extends StatelessWidget {
   final double bmi;
 
@@ -134,40 +136,55 @@ class _HowMuchYouWeighState extends State<HowMuchYouWeigh> {
             buildSelectedRuler(),
             SizedBox(height: 20),
             BMIIndicator(bmi: bmiValue),
-            Expanded(
-              child: Align(
-                alignment: FractionalOffset.bottomCenter,
-                child: ElevatedButton(
-                  onPressed: (isSelected[0] || isSelected[1]) && bmiValue > 0
-                      ? () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => MesmerizingFigure(),
-                            ),
-                          );
-                        }
-                      : null,
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(double.infinity, 50),
-                    backgroundColor:
-                        (isSelected[0] || isSelected[1]) && bmiValue > 0
-                            ? const Color.fromRGBO(255, 51, 119, 1)
-                            : Colors.grey,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  ),
-                  child: Text(
-                    'СЛЕДУЮЩЕЕ',
-                    style: TextStyle(
-                      fontSize: 24.0,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
+            NextHowCustomButtonWidget(
+              buttonText: 'СЛЕДУЮЩЕЕ',
+              destinationWidget: MesmerizingFigure(),
+              isButtonEnabled: (isSelected[0] || isSelected[1]) && bmiValue > 0,
+              onPressed: (isSelected[0] || isSelected[1]) && bmiValue > 0
+                  ? () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MesmerizingFigure(),
+                        ),
+                      );
+                    }
+                  : null,
             ),
+            // Expanded(
+            //   child: Align(
+            //     alignment: FractionalOffset.bottomCenter,
+            //     child: ElevatedButton(
+            //       onPressed: (isSelected[0] || isSelected[1]) && bmiValue > 0
+            //           ? () {
+            //               Navigator.push(
+            //                 context,
+            //                 MaterialPageRoute(
+            //                   builder: (context) => MesmerizingFigure(),
+            //                 ),
+            //               );
+            //             }
+            //           : null,
+            //       style: ElevatedButton.styleFrom(
+            //         minimumSize: const Size(double.infinity, 50),
+            //         backgroundColor:
+            //             (isSelected[0] || isSelected[1]) && bmiValue > 0
+            //                 ? const Color.fromRGBO(255, 51, 119, 1)
+            //                 : Colors.grey,
+            //         shape: RoundedRectangleBorder(
+            //           borderRadius: BorderRadius.circular(30),
+            //         ),
+            //       ),
+            //       child: Text(
+            //         'СЛЕДУЮЩЕЕ',
+            //         style: TextStyle(
+            //           fontSize: 24.0,
+            //           color: Colors.white,
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),

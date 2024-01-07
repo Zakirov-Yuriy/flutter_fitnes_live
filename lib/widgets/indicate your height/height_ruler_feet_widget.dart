@@ -29,7 +29,7 @@ class _HeightRulerFeetVerticalState extends State<HeightRulerFeetVertical> {
             ),
           ),
           Container(
-            height: 450,
+            height: 400,
             width: double.infinity,
             child: Row(
               children: [
@@ -105,7 +105,7 @@ class _HeightRulerFeetVerticalState extends State<HeightRulerFeetVertical> {
                   children: [
                     SizedBox(height: 10),
                     Container(
-                      width: 175,
+                      width: 140,
                       height: 2,
                       color: Color.fromRGBO(255, 51, 119, 1),
                     ),

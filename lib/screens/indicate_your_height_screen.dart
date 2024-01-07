@@ -3,6 +3,8 @@ import 'package:flutter_fitnes_live/screens/how_much_you_weigh_screen.dart';
 import 'package:flutter_fitnes_live/widgets/indicate%20your%20height/height_ruler_centimeters_widget.dart';
 import 'package:flutter_fitnes_live/widgets/indicate%20your%20height/height_ruler_feet_widget.dart';
 
+import '../widgets/button/next_ruler_button.dart';
+
 class IndicateYourHeightScreen extends StatefulWidget {
   @override
   _IndicateYourHeightScreenState createState() =>
@@ -69,39 +71,55 @@ class _IndicateYourHeightScreenState extends State<IndicateYourHeightScreen> {
                 onChanged: handleHeightChange,
               ),
             ),
-            Expanded(
-              child: Align(
-                alignment: FractionalOffset.bottomCenter,
-                child: ElevatedButton(
-                  onPressed: isHeightSelected
-                      ? () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => HowMuchYouWeigh(),
-                            ),
-                          );
-                        }
-                      : null,
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(double.infinity, 50),
-                    backgroundColor: isHeightSelected
-                        ? const Color.fromRGBO(255, 51, 119, 1)
-                        : Colors.grey,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  ),
-                  child: Text(
-                    'СЛЕДУЮЩЕЕ',
-                    style: TextStyle(
-                      fontSize: 24.0,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
+
+            NextRulerCustomButtonWidget(
+              buttonText: 'СЛЕДУЮЩЕЕ',
+              destinationWidget: HowMuchYouWeigh(),
+              isButtonEnabled: isHeightSelected,
+              onPressed: isHeightSelected
+                  ? () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HowMuchYouWeigh(),
+                        ),
+                      );
+                    }
+                  : null,
             ),
+            // Expanded(
+            //   child: Align(
+            //     alignment: FractionalOffset.bottomCenter,
+            //     child: ElevatedButton(
+            //       onPressed: isHeightSelected
+            //           ? () {
+            //               Navigator.push(
+            //                 context,
+            //                 MaterialPageRoute(
+            //                   builder: (context) => HowMuchYouWeigh(),
+            //                 ),
+            //               );
+            //             }
+            //           : null,
+            //       style: ElevatedButton.styleFrom(
+            //         minimumSize: const Size(double.infinity, 50),
+            //         backgroundColor: isHeightSelected
+            //             ? const Color.fromRGBO(255, 51, 119, 1)
+            //             : Colors.grey,
+            //         shape: RoundedRectangleBorder(
+            //           borderRadius: BorderRadius.circular(30),
+            //         ),
+            //       ),
+            //       child: Text(
+            //         'СЛЕДУЮЩЕЕ',
+            //         style: TextStyle(
+            //           fontSize: 24.0,
+            //           color: Colors.white,
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
