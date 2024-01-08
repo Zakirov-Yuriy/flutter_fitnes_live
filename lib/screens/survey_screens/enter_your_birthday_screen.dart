@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_fitnes_live/screens/indicate_your_height_screen.dart';
+import 'package:flutter_fitnes_live/screens/survey_screens/indicate_your_height_screen.dart';
 
-import '../widgets/button/next_button.dart';
+import '../../widgets/survey_screens/button/next_button.dart';
 
 // Основной класс виджета, представляющий экран ввода года рождения пользователя
 class EnterYourBirthday extends StatefulWidget {

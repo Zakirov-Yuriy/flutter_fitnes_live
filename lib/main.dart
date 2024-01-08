@@ -2,7 +2,7 @@
 
 // Импорт необходимых библиотек и экрана-заставки
 import 'package:flutter/material.dart';
-import 'package:flutter_fitnes_live/widgets/splash_screen/splash_screen.dart';
+import 'widgets/survey_screens/splash_screen/splash_screen.dart';
 
 // Главная функция, запускающая приложение
 void main() {
@@ -19,8 +19,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner:
           false, // Отключение баннера отладки в режиме разработки
-      home:
-          SplashScreen(), // Установка экрана-заставки в качестве начального экрана
+
+      home: SplashScreen(),
+
+      // Установка экрана-заставки в качестве начального экрана
     );
   }
 }

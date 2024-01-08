@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fitnes_live/screens/how_much_you_weigh_screen.dart';
-import 'package:flutter_fitnes_live/widgets/button/start_button.dart';
+import 'package:flutter_fitnes_live/screens/survey_screens/how_much_you_weigh_screen.dart';
+import 'package:flutter_fitnes_live/widgets/survey_screens/button/start_button.dart';
+
+import '../app_screens/main_screen.dart';
 
 class MesmerizingFigure extends StatelessWidget {
   @override
@@ -55,7 +57,7 @@ class MesmerizingFigure extends StatelessWidget {
             ),
             StartCustomButtonWidget(
               buttonText: 'НАЧАТЬ',
-              destinationWidget: HowMuchYouWeigh(),
+              destinationWidget: MainScreen(),
             ),
             // Expanded(
             //   child: Align(

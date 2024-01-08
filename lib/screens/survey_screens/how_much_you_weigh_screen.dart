@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fitnes_live/screens/mesmerizing_figure%20_screen.dart';
-import 'package:flutter_fitnes_live/widgets/how%20much%20you%20weigh/height_ruler_kilograms_widget.dart';
-import 'package:flutter_fitnes_live/widgets/how%20much%20you%20weigh/height_ruler_pounds_widget.dart';
+import 'package:flutter_fitnes_live/screens/survey_screens/mesmerizing_figure%20_screen.dart';
+import 'package:flutter_fitnes_live/widgets/survey_screens/how%20much%20you%20weigh/height_ruler_kilograms_widget.dart';
+import 'package:flutter_fitnes_live/widgets/survey_screens/how%20much%20you%20weigh/height_ruler_pounds_widget.dart';
 
-import '../widgets/button/next_how_button.dart';
+import '../../widgets/survey_screens/button/next_how_button.dart';
 
 class BMIIndicator extends StatelessWidget {
   final double bmi;

@@ -5,9 +5,9 @@
 
 // Импорт необходимых библиотек
 import 'package:flutter/material.dart';
-import 'package:flutter_fitnes_live/screens/question_answer_screen.dart';
+import 'package:flutter_fitnes_live/screens/survey_screens/question_answer_screen.dart';
 
-import '../widgets/button/start_button.dart';
+import '../../widgets/survey_screens/button/start_button.dart';
 
 // Класс для создания NextScreen
 class NextScreen extends StatelessWidget {
