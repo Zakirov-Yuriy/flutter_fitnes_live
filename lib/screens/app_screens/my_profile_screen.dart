@@ -15,11 +15,11 @@ class MyProfileScreen extends StatefulWidget {
 }
 
 class _MyProfileScreenState extends State<MyProfileScreen> {
-  // Добавьте объявление переменной weight
-  double weight = 0.0; // Используйте значение по умолчанию, которое вам нужно
+  // Измени объявление переменной weight
+  int weight = 0; // Используй значение по умолчанию, которое нужно
 
   String formattedWeight() {
-    return weight.toStringAsFixed(1);
+    return weight.toString();
   }
 
   String? avatarUrl;
@@ -37,7 +37,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
     // Вместо использования переменной birthYear, получите значение из провайдера
     int birthYear = Provider.of<BirthYearProvider>(context).birthYear;
 // Вместо использования напрямую значения weight, получите его из провайдера
-    weight = Provider.of<WeightProvider>(context).weight;
+    weight = Provider.of<WeightProvider>(context).weight.round();
     return Scaffold(
       appBar: AppBar(
         title: Text('Мой профиль'),
@@ -56,30 +56,32 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
             // Текст "Пользователь"
             buildUserNameText(),
             SizedBox(height: 20),
-            Center(
-              child: Container(
-                width: 300,
-                height: 35,
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 230, 228, 228),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Center(
-                  child: ToggleButtons(
-                    children: [
-                      buildToggleButton('Kg, Cm.', 0),
-                      buildToggleButton('Ld, Ft.', 1),
-                    ],
-                    isSelected: isSelected,
-                    onPressed: handleToggleButtons,
-                    selectedColor: Colors.transparent,
-                    fillColor: Colors.transparent,
-                    borderColor: Colors.transparent,
-                    borderWidth: 0,
-                  ),
-                ),
-              ),
-            ),
+
+            // Кнопки переключения
+            // Center(
+            //   child: Container(
+            //     width: 300,
+            //     height: 35,
+            //     decoration: BoxDecoration(
+            //       color: const Color.fromARGB(255, 230, 228, 228),
+            //       borderRadius: BorderRadius.circular(10),
+            //     ),
+            //     child: Center(
+            //       child: ToggleButtons(
+            //         children: [
+            //           buildToggleButton('Kg, Cm.', 0),
+            //           buildToggleButton('Ld, Ft.', 1),
+            //         ],
+            //         isSelected: isSelected,
+            //         onPressed: handleToggleButtons,
+            //         selectedColor: Colors.transparent,
+            //         fillColor: Colors.transparent,
+            //         borderColor: Colors.transparent,
+            //         borderWidth: 0,
+            //       ),
+            //     ),
+            //   ),
+            // ),
 
             SizedBox(height: 20),
             // Строка с ростом
@@ -291,7 +293,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
         Text(
           value,
           style: TextStyle(
-            fontSize: 16,
+            fontSize: 18,
           ),
         ),
       ],
@@ -318,16 +320,34 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                   gender = 'Мужской';
                 });
               },
-              child: Text('М'),
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.pink, // Цвет текста
+                padding: EdgeInsets.symmetric(
+                    vertical: 8, horizontal: 50), // Поля вокруг текста
+              ),
+              child: Text(
+                'М',
+                style: TextStyle(fontSize: 18),
+              ),
             ),
-            SizedBox(width: 10),
+            SizedBox(width: 15), // Увеличьте расстояние между кнопками
             ElevatedButton(
               onPressed: () {
                 setState(() {
                   gender = 'Женский';
                 });
               },
-              child: Text('Ж'),
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.pink, // Цвет текста
+                padding: EdgeInsets.symmetric(
+                    vertical: 8, horizontal: 50), // Поля вокруг текста
+              ),
+              child: Text(
+                'Ж',
+                style: TextStyle(fontSize: 18),
+              ),
             ),
           ],
         ),

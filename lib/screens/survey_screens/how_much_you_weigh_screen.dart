@@ -124,11 +124,10 @@ class _HowMuchYouWeighState extends State<HowMuchYouWeigh> {
               ),
               child: ToggleButtons(
                 children: [
-                  buildToggleButton('кг', 0),
-                  buildToggleButton(
-                      'фт', 1), // Обновленная метка на 'фт' для согласованности
+                  buildToggleButton('Kg', 0),
+                  // buildToggleButton('Lb', 1), // Удали эту строку
                 ],
-                isSelected: isSelected,
+                isSelected: [true], // Оставь только одну кнопку
                 onPressed: handleToggleButtons,
                 selectedColor: Colors.transparent,
                 fillColor: Colors.transparent,

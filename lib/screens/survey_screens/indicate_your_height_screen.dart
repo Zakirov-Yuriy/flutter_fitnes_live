@@ -47,10 +47,10 @@ class _IndicateYourHeightScreenState extends State<IndicateYourHeightScreen> {
               ),
               child: ToggleButtons(
                 children: [
-                  buildToggleButton('cm', 0),
-                  buildToggleButton('ft', 1),
+                  buildToggleButton('Сm', 0),
+                  // buildToggleButton('ft', 1), // Удали эту строку
                 ],
-                isSelected: isSelected,
+                isSelected: [true], // Оставь только одну кнопку
                 onPressed: handleToggleButtons,
                 selectedColor: Colors.transparent,
                 fillColor: Colors.transparent,
@@ -73,7 +73,6 @@ class _IndicateYourHeightScreenState extends State<IndicateYourHeightScreen> {
                 onChanged: handleHeightChange,
               ),
             ),
-
             NextRulerCustomButtonWidget(
               buttonText: 'СЛЕДУЮЩЕЕ',
               destinationWidget: HowMuchYouWeigh(),
@@ -89,39 +88,6 @@ class _IndicateYourHeightScreenState extends State<IndicateYourHeightScreen> {
                     }
                   : null,
             ),
-            // Expanded(
-            //   child: Align(
-            //     alignment: FractionalOffset.bottomCenter,
-            //     child: ElevatedButton(
-            //       onPressed: isHeightSelected
-            //           ? () {
-            //               Navigator.push(
-            //                 context,
-            //                 MaterialPageRoute(
-            //                   builder: (context) => HowMuchYouWeigh(),
-            //                 ),
-            //               );
-            //             }
-            //           : null,
-            //       style: ElevatedButton.styleFrom(
-            //         minimumSize: const Size(double.infinity, 50),
-            //         backgroundColor: isHeightSelected
-            //             ? const Color.fromRGBO(255, 51, 119, 1)
-            //             : Colors.grey,
-            //         shape: RoundedRectangleBorder(
-            //           borderRadius: BorderRadius.circular(30),
-            //         ),
-            //       ),
-            //       child: Text(
-            //         'СЛЕДУЮЩЕЕ',
-            //         style: TextStyle(
-            //           fontSize: 24.0,
-            //           color: Colors.white,
-            //         ),
-            //       ),
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ),
