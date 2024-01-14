@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fitnes_live/screens/survey_screens/mesmerizing_figure%20_screen.dart';
 import 'package:flutter_fitnes_live/widgets/survey_screens/how%20much%20you%20weigh/height_ruler_kilograms_widget.dart';
 import 'package:flutter_fitnes_live/widgets/survey_screens/how%20much%20you%20weigh/height_ruler_pounds_widget.dart';
+import 'package:provider/provider.dart';
 
+import '../../provider/weight_provider.dart';
 import '../../widgets/survey_screens/button/next_how_button.dart';
 
 class BMIIndicator extends StatelessWidget {
@@ -86,11 +88,12 @@ class HowMuchYouWeigh extends StatefulWidget {
 }
 
 class _HowMuchYouWeighState extends State<HowMuchYouWeigh> {
+  double weightValue = 0.0;
+
   List<bool> isSelected = [true, false];
   MeasurementUnit selectedUnit = MeasurementUnit.Kilograms;
-  double weightValue = 60.0;
-  double heightValue = 1.75; // Пример значения роста (в метрах)
-  double bmiValue = 0.0; // Инициализация ИМТ
+  double heightValue = 1.75;
+  double bmiValue = 0.0;
 
   @override
   Widget build(BuildContext context) {
@@ -121,8 +124,9 @@ class _HowMuchYouWeighState extends State<HowMuchYouWeigh> {
               ),
               child: ToggleButtons(
                 children: [
-                  buildToggleButton('kg', 0),
-                  buildToggleButton('ld', 1),
+                  buildToggleButton('кг', 0),
+                  buildToggleButton(
+                      'фт', 1), // Обновленная метка на 'фт' для согласованности
                 ],
                 isSelected: isSelected,
                 onPressed: handleToggleButtons,
@@ -142,6 +146,9 @@ class _HowMuchYouWeighState extends State<HowMuchYouWeigh> {
               isButtonEnabled: (isSelected[0] || isSelected[1]) && bmiValue > 0,
               onPressed: (isSelected[0] || isSelected[1]) && bmiValue > 0
                   ? () {
+                      Provider.of<WeightProvider>(context, listen: false)
+                          .weight = weightValue;
+
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -151,40 +158,6 @@ class _HowMuchYouWeighState extends State<HowMuchYouWeigh> {
                     }
                   : null,
             ),
-            // Expanded(
-            //   child: Align(
-            //     alignment: FractionalOffset.bottomCenter,
-            //     child: ElevatedButton(
-            //       onPressed: (isSelected[0] || isSelected[1]) && bmiValue > 0
-            //           ? () {
-            //               Navigator.push(
-            //                 context,
-            //                 MaterialPageRoute(
-            //                   builder: (context) => MesmerizingFigure(),
-            //                 ),
-            //               );
-            //             }
-            //           : null,
-            //       style: ElevatedButton.styleFrom(
-            //         minimumSize: const Size(double.infinity, 50),
-            //         backgroundColor:
-            //             (isSelected[0] || isSelected[1]) && bmiValue > 0
-            //                 ? const Color.fromRGBO(255, 51, 119, 1)
-            //                 : Colors.grey,
-            //         shape: RoundedRectangleBorder(
-            //           borderRadius: BorderRadius.circular(30),
-            //         ),
-            //       ),
-            //       child: Text(
-            //         'СЛЕДУЮЩЕЕ',
-            //         style: TextStyle(
-            //           fontSize: 24.0,
-            //           color: Colors.white,
-            //         ),
-            //       ),
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ),

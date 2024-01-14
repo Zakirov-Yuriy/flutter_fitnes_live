@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_fitnes_live/provider/birthYear_provider.dart';
 import 'package:flutter_fitnes_live/screens/survey_screens/indicate_your_height_screen.dart';
+import 'package:provider/provider.dart';
 
 import '../../widgets/survey_screens/button/next_button.dart';
 
@@ -81,11 +83,11 @@ class _EnterYourBirthdayState extends State<EnterYourBirthday> {
                 ),
                 onSelectedItemChanged: (int index) {
                   setState(() {
-                    selectedYear = 1994 + index;
+                    selectedYear = 1932 +
+                        index; // Теперь выбираем год по индексу правильно
                     updateButtonState(true);
                     if (!isBackgroundChanged) {
-                      isBackgroundChanged =
-                          true; // Первое изменение фона и цвета текста
+                      isBackgroundChanged = true;
                     }
                   });
                 },
@@ -110,10 +112,15 @@ class _EnterYourBirthdayState extends State<EnterYourBirthday> {
               completedAnswers: completedAnswers,
               onPressed: isButtonEnabled
                   ? () {
+                      // Передача года рождения с использованием провайдера
+                      Provider.of<BirthYearProvider>(context, listen: false)
+                          .birthYear = selectedYear;
+
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => IndicateYourHeightScreen()),
+                          builder: (context) => IndicateYourHeightScreen(),
+                        ),
                       );
                       setState(() {
                         completedAnswers++;
@@ -170,6 +177,10 @@ class _EnterYourBirthdayState extends State<EnterYourBirthday> {
   void updateButtonState(bool isSelected) {
     setState(() {
       isButtonEnabled = isSelected;
+      if (isSelected) {
+        // Передача года рождения с использованием провайдера
+        context.read<BirthYearProvider>().birthYear = selectedYear;
+      }
     });
   }
 }

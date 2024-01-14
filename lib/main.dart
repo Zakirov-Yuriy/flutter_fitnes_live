@@ -1,28 +1,34 @@
-// Файл main.dart представляет собой входную точку приложения Flutter.
-
-// Импорт необходимых библиотек и экрана-заставки
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'provider/birthYear_provider.dart';
+import 'provider/height_provider.dart';
+import 'provider/weight_provider.dart';
 import 'widgets/survey_screens/splash_screen/splash_screen.dart';
 
-// Главная функция, запускающая приложение
 void main() {
-  runApp(MyApp());
+  debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => HeightProvider()),
+        ChangeNotifierProvider(create: (context) => WeightProvider()),
+        ChangeNotifierProvider(create: (context) => BirthYearProvider()),
+        // Добавьте другие провайдеры, если нужно
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
-// Класс приложения (наследуется от StatelessWidget)
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Возвращаем MaterialApp, конфигурируемый для отображения заставочного экрана
     return MaterialApp(
-      debugShowCheckedModeBanner:
-          false, // Отключение баннера отладки в режиме разработки
-
+      debugShowCheckedModeBanner: false,
       home: SplashScreen(),
-
-      // Установка экрана-заставки в качестве начального экрана
     );
   }
 }

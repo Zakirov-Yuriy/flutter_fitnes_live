@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fitnes_live/screens/survey_screens/how_much_you_weigh_screen.dart';
 import 'package:flutter_fitnes_live/widgets/survey_screens/indicate%20your%20height/height_ruler_centimeters_widget.dart';
 import 'package:flutter_fitnes_live/widgets/survey_screens/indicate%20your%20height/height_ruler_feet_widget.dart';
+import 'package:provider/provider.dart';
 
+import '../../provider/height_provider.dart';
 import '../../widgets/survey_screens/button/next_ruler_button.dart';
 
 class IndicateYourHeightScreen extends StatefulWidget {
@@ -127,6 +129,7 @@ class _IndicateYourHeightScreenState extends State<IndicateYourHeightScreen> {
   }
 
   void handleHeightChange(double value) {
+    Provider.of<HeightProvider>(context, listen: false).updateHeight(value);
     setState(() {
       heightValue = value;
       isHeightSelected = true;
@@ -145,7 +148,29 @@ class _IndicateYourHeightScreenState extends State<IndicateYourHeightScreen> {
         }
       }
     });
+
+    Provider.of<HeightProvider>(context, listen: false).toggleHeightUnit();
   }
+  // void handleHeightChange(double value) {
+  //   setState(() {
+  //     heightValue = value;
+  //     isHeightSelected = true;
+  //   });
+  // }
+
+  // void handleToggleButtons(int index) {
+  //   setState(() {
+  //     for (int buttonIndex = 0;
+  //         buttonIndex < isSelected.length;
+  //         buttonIndex++) {
+  //       if (buttonIndex == index) {
+  //         isSelected[buttonIndex] = true;
+  //       } else {
+  //         isSelected[buttonIndex] = false;
+  //       }
+  //     }
+  //   });
+  // }
 
   Widget buildToggleButton(String label, int index) {
     return Container(

@@ -30,6 +30,7 @@ class _MainScreenExampleState extends State<MainScreenExample> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: NavigationBar(
+        elevation: 0,
         onDestinationSelected: (int index) {
           setState(() {
             currentPageIndex = index;
@@ -41,7 +42,7 @@ class _MainScreenExampleState extends State<MainScreenExample> {
           NavigationDestination(
             selectedIcon: Icon(Icons.home),
             icon: Badge(child: Icon(Icons.home_outlined)),
-            label: 'Home',
+            label: 'Домой',
           ),
           NavigationDestination(
             selectedIcon: Icon(Icons.people_alt),
@@ -53,7 +54,7 @@ class _MainScreenExampleState extends State<MainScreenExample> {
       body: <Widget>[
         /// Home page
         Card(
-          shadowColor: Colors.transparent,
+          // shadowColor: Colors.transparent,
           margin: const EdgeInsets.all(8.0),
           child: HomeScreen(),
         ),
@@ -62,6 +63,8 @@ class _MainScreenExampleState extends State<MainScreenExample> {
 
         Card(
           child: MyProfileScreen(),
+          margin: const EdgeInsets.all(8.0),
+          // shadowColor: Colors.transparent,
         ),
 
         /// Messages page
