@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fitnes_live/provider/height_provider.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-import '../../provider/birthYear_provider.dart';
+import '../../provider/birth_year_provider.dart';
 import '../../provider/weight_provider.dart';
 
 class MyProfileScreen extends StatefulWidget {

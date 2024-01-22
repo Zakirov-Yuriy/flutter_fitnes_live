@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_fitnes_live/provider/birthYear_provider.dart';
+import 'package:flutter_fitnes_live/provider/birth_year_provider.dart';
 import 'package:flutter_fitnes_live/screens/survey_screens/indicate_your_height_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -66,7 +66,7 @@ class _EnterYourBirthdayState extends State<EnterYourBirthday> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.0),
         color: isBackgroundChanged
-            ? Colors.pink
+            ? Color.fromRGBO(255, 51, 119, 1)
             : Color.fromARGB(255, 234, 233, 233),
       ),
       child: Center(
