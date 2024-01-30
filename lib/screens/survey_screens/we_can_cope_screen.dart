@@ -50,13 +50,13 @@ class WeCanCope extends StatelessWidget {
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(
-                          'assets/images/removebg-preview.png'), //  Фотография
+                          'assets/images/survey_screens_image/removebg-preview.png'), //  Фотография
                       fit: BoxFit.contain,
                     ),
                   ),
                 ),
                 SizedBox(height: 30),
-                Image.asset('assets/images/calendar.png'),
+                Image.asset('assets/images/survey_screens_image/calendar.png'),
               ],
             ),
           ),

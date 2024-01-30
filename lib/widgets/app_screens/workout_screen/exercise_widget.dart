@@ -31,34 +31,36 @@ class ExerciseWidget extends StatelessWidget {
             height: 100,
             image: AssetImage(imagePath),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 15),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 10),
-                  child: Text(
-                    exerciseText,
-                    style: TextStyle(
-                      fontSize: 20,
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Text(
+                      exerciseText,
+                      style: TextStyle(
+                        fontSize: 18,
+                      ),
                     ),
                   ),
-                ),
-                Container(
-                  width: MediaQuery.of(context).size.width -
-                      150, // Ширина экрана минус ширина изображения и отступа
-                  child: Text(
-                    subtitleText,
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.grey,
+                  Container(
+                    width: MediaQuery.of(context).size.width -
+                        150, // Ширина экрана минус ширина изображения и отступа
+                    child: Text(
+                      subtitleText,
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.grey,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2, // Максимальное количество строк
                     ),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2, // Максимальное количество строк
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],

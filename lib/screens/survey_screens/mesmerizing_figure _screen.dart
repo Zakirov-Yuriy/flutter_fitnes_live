@@ -11,7 +11,8 @@ class MesmerizingFigure extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/girl-measuring.png'),
+            image: AssetImage(
+                'assets/images/survey_screens_image/girl-measuring.png'),
             fit: BoxFit.cover, // чтобы изображение покрывало весь контейнер
           ),
         ),

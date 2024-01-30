@@ -139,7 +139,7 @@ class _HeightRulerCentimetersVerticalState
                 ),
                 // Вложенный виджет Image.asset отображает изображение девушки.
                 Image.asset(
-                  'assets/images/girl-over.png',
+                  'assets/images/survey_screens_image/girl-over.png',
                   height: 420,
                   fit: BoxFit.contain,
                 ),

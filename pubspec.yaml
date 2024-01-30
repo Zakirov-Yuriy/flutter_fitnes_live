@@ -58,6 +58,7 @@ flutter:
   # like this:
   assets:
     - assets/images/
+    - assets/images/survey_screens_image/
     - assets/images/workout_image/
   
 

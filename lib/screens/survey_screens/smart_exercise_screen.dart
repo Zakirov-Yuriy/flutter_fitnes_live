@@ -25,7 +25,8 @@ class SmartExercise extends StatelessWidget {
             height: MediaQuery.of(context).size.height / 2,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/poza.png'), //  Фотография
+                image: AssetImage(
+                    'assets/images/survey_screens_image/poza.png'), //  Фотография
                 fit: BoxFit.cover,
               ),
             ),

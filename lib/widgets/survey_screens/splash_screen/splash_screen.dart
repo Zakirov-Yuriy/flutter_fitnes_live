@@ -67,7 +67,7 @@ class _SplashScreenState extends State<SplashScreen>
               return Transform.scale(
                 scale: _animation.value,
                 child: Image.asset(
-                  'assets/images/bg.jpeg',
+                  'assets/images/survey_screens_image/bg.jpeg',
                   fit: BoxFit.cover,
                 ),
               );

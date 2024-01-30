@@ -58,7 +58,7 @@ class _SolePurposeState extends State<SolePurpose> {
               SizedBox(height: 40.0),
               SolePurposeWidget(
                 labelText: 'Сбросить вес',
-                imagePath: 'assets/images/snap1.png',
+                imagePath: 'assets/images/survey_screens_image/snap1.png',
                 isSelected: openedWidgetIndex == 0,
                 onTap: () => updateOpenedWidgetIndex(0),
                 additionalText: 'Вы сможете достичь своих целей!',
@@ -68,7 +68,7 @@ class _SolePurposeState extends State<SolePurpose> {
               SizedBox(height: 10.0),
               SolePurposeWidget(
                 labelText: 'Нарастить мышечную массу',
-                imagePath: 'assets/images/snap2.png',
+                imagePath: 'assets/images/survey_screens_image/snap2.png',
                 isSelected: openedWidgetIndex == 1,
                 onTap: () => updateOpenedWidgetIndex(1),
                 additionalText: 'Пришло время стать сильнее!',
@@ -78,7 +78,7 @@ class _SolePurposeState extends State<SolePurpose> {
               SizedBox(height: 10.0),
               SolePurposeWidget(
                 labelText: 'Быть в форме',
-                imagePath: 'assets/images/snap3.png',
+                imagePath: 'assets/images/survey_screens_image/snap3.png',
                 isSelected: openedWidgetIndex == 2,
                 onTap: () => updateOpenedWidgetIndex(2),
                 additionalText: 'Путеводитель по здоровому образу жизни!',

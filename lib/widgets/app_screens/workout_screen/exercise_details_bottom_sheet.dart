@@ -28,9 +28,8 @@ class ExerciseDetailsBottomSheet extends StatelessWidget {
             Image(
               image: AssetImage(imagePath),
             ),
-            SizedBox(height: 16),
             Padding(
-              padding: EdgeInsets.only(bottom: 10),
+              padding: EdgeInsets.only(bottom: 10, top: 16),
               child: Row(
                 children: [
                   Text(
@@ -39,6 +38,7 @@ class ExerciseDetailsBottomSheet extends StatelessWidget {
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
+                    softWrap: true,
                   ),
                 ],
               ),
@@ -60,6 +60,10 @@ class ExerciseDetailsBottomSheet extends StatelessWidget {
                 ),
               ],
             ),
+            Divider(
+              color: Color.fromRGBO(255, 51, 119, 1),
+              thickness: 1,
+            ),
             SizedBox(height: 8),
             Text(
               subtitleText,
@@ -67,7 +71,7 @@ class ExerciseDetailsBottomSheet extends StatelessWidget {
                 fontSize: 18,
               ),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 26),
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pop(); // Закрытие BottomSheet

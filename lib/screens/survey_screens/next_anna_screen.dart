@@ -24,7 +24,8 @@ class NextScreen extends StatelessWidget {
             height: MediaQuery.of(context).size.height / 2,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/anna_photo.png'),
+                image: AssetImage(
+                    'assets/images/survey_screens_image/anna_photo.png'),
                 fit: BoxFit.cover,
               ),
             ),

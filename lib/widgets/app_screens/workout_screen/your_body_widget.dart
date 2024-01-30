@@ -20,7 +20,7 @@ class YourBodyWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 15),
               child: Text(
-                'Научно доказано, что похудение улучшает \nсердечно-сосудистую функцию',
+                'КОРОТКИЕ УПРАЖНЕНИЯ ИНТЕНСИВНЫЙ И НАСЫЩЕННЫЙ',
                 style: TextStyle(
                   fontSize: 18,
                 ),
@@ -62,7 +62,7 @@ class YourBodyWidget extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          '10',
+                          '12',
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w800,

@@ -44,7 +44,7 @@ class _WhatYouWantToWorkOnState extends State<WhatYouWantToWorkOn> {
             Row(
               children: [
                 Image.asset(
-                  'assets/images/girl-with.png',
+                  'assets/images/survey_screens_image/girl-with.png',
                   width: 222,
                   height: 490,
                 ), // Изображение силуэта человека

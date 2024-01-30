@@ -9,7 +9,7 @@ class ContainerCarouselOne extends StatelessWidget {
   ];
 
   final List<String> titles = [
-    'Программа 7x4',
+    'Программа 10x4',
     'Программа 7x2',
   ];
 
