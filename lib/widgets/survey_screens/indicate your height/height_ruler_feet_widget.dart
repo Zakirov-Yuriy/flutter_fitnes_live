@@ -4,7 +4,8 @@ class HeightRulerFeetVertical extends StatefulWidget {
   final double height;
   final ValueChanged<double>? onChanged;
 
-  HeightRulerFeetVertical({required this.height, this.onChanged});
+  const HeightRulerFeetVertical(
+      {super.key, required this.height, this.onChanged});
 
   @override
   _HeightRulerFeetVerticalState createState() =>
@@ -22,7 +23,7 @@ class _HeightRulerFeetVerticalState extends State<HeightRulerFeetVertical> {
         children: [
           Text(
             '${middleValue.toStringAsFixed(1)}',
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
               fontSize: 35.0,
@@ -103,11 +104,11 @@ class _HeightRulerFeetVerticalState extends State<HeightRulerFeetVertical> {
                 ),
                 Column(
                   children: [
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Container(
                       width: 140,
                       height: 2,
-                      color: Color.fromRGBO(255, 51, 119, 1),
+                      color: const Color.fromRGBO(255, 51, 119, 1),
                     ),
                   ],
                 ),

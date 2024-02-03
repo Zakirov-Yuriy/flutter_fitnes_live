@@ -5,7 +5,8 @@ class HeightRulerPounds extends StatefulWidget {
   final double weightInPounds;
   final ValueChanged<double>? onChanged;
 
-  HeightRulerPounds({required this.weightInPounds, this.onChanged});
+  const HeightRulerPounds(
+      {super.key, required this.weightInPounds, this.onChanged});
 
   @override
   _HeightRulerPoundsState createState() => _HeightRulerPoundsState();
@@ -26,13 +27,13 @@ class _HeightRulerPoundsState extends State<HeightRulerPounds> {
             children: [
               Text(
                 '${middleValue.toInt()}',
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                   fontSize: 35.0,
                 ),
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               Expanded(
                 child: NotificationListener<ScrollUpdateNotification>(
                   onNotification: (notification) {
@@ -96,7 +97,7 @@ class _HeightRulerPoundsState extends State<HeightRulerPounds> {
                               width: 1,
                               color: lineColor,
                             ),
-                            SizedBox(height: 20), // Добавлен отступ
+                            const SizedBox(height: 20), // Добавлен отступ
                           ],
                         ),
                       );
@@ -104,7 +105,7 @@ class _HeightRulerPoundsState extends State<HeightRulerPounds> {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         ),
@@ -115,7 +116,7 @@ class _HeightRulerPoundsState extends State<HeightRulerPounds> {
           child: Container(
             width: 2,
             height: 74,
-            color: Color.fromRGBO(255, 51, 119, 1),
+            color: const Color.fromRGBO(255, 51, 119, 1),
           ),
         ),
       ],

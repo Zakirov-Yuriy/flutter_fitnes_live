@@ -11,7 +11,7 @@ class ContainerCarousel extends StatelessWidget {
           // Первый контейнер
           Container(
             color: Colors.red,
-            child: Center(
+            child: const Center(
               child: Text(
                 'Контейнер 1',
                 style: TextStyle(color: Colors.white),
@@ -22,7 +22,7 @@ class ContainerCarousel extends StatelessWidget {
           // Второй контейнер
           Container(
             color: Colors.green,
-            child: Center(
+            child: const Center(
               child: Text(
                 'Контейнер 2',
                 style: TextStyle(color: Colors.white),

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class StartCustomButtonWidget extends StatelessWidget {
+import '../../../screens/survey_screens/question_answer_screen.dart';
+
+class StartAnnaCustomButtonWidget extends StatelessWidget {
   final String buttonText;
   final Widget destinationWidget;
 
-  const StartCustomButtonWidget({
+  const StartAnnaCustomButtonWidget({
     super.key,
     required this.buttonText,
     required this.destinationWidget,
@@ -18,14 +21,15 @@ class StartCustomButtonWidget extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.only(bottom: 15.0, left: 16, right: 16),
           child: ElevatedButton(
-            onPressed: () {
-              Navigator.push(
+            onPressed: () async {
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              await prefs.setBool('survey_completed', true);
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => destinationWidget,
+                  builder: (context) => GoalScreen(),
                 ),
               );
-              // Добавьте код здесь для обработки нажатия кнопки
             },
             style: ElevatedButton.styleFrom(
               minimumSize: const Size(double.infinity, 50),

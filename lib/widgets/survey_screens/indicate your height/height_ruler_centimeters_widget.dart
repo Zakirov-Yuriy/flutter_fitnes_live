@@ -8,7 +8,8 @@ class HeightRulerCentimetersVertical extends StatefulWidget {
   final ValueChanged<double>? onChanged;
 
   // Конструктор виджета, принимающий высоту и обработчик изменений.
-  HeightRulerCentimetersVertical({required this.height, this.onChanged});
+  const HeightRulerCentimetersVertical(
+      {super.key, required this.height, this.onChanged});
 
   @override
   _HeightRulerCentimetersVerticalState createState() =>
@@ -30,7 +31,7 @@ class _HeightRulerCentimetersVerticalState
           // Виджет Text отображает текущее значение средней позиции линейки в виде целого числа.
           Text(
             '${middleValue.toInt()}',
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
               fontSize: 35.0,
@@ -128,12 +129,12 @@ class _HeightRulerCentimetersVerticalState
                 // Вложенный виджет Column содержит дополнительные элементы интерфейса.
                 Column(
                   children: [
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     // Дополнительный контейнер с двумя виджетами, представляющими декоративные элементы.
                     Container(
                       width: 140,
                       height: 2,
-                      color: Color.fromRGBO(255, 51, 119, 1),
+                      color: const Color.fromRGBO(255, 51, 119, 1),
                     ),
                   ],
                 ),

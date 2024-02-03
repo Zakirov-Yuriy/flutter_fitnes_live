@@ -36,23 +36,24 @@ class BMIIndicator extends StatelessWidget {
       width: double.infinity,
       height: 200,
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 230, 228, 228),
+        color: const Color.fromARGB(255, 230, 228, 228),
         borderRadius: BorderRadius.circular(15.0),
       ),
       child: Column(
         children: [
-          Padding(padding: EdgeInsets.only(top: 20)),
+          const Padding(padding: EdgeInsets.only(top: 20)),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text(
+              const Text(
                 'ТУКЕЩИЙ ИМТ:',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              SizedBox(width: 70),
+              const SizedBox(width: 70),
               Text(
                 bmi.toStringAsFixed(1),
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                   color: Color.fromARGB(255, 28, 122, 199),
@@ -60,14 +61,14 @@ class BMIIndicator extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             children: [
               Flexible(
                 child: Text(
                   textAlign: TextAlign.center,
                   'У вас: $category',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18,
                   ),
                 ),
@@ -83,6 +84,8 @@ class BMIIndicator extends StatelessWidget {
 enum MeasurementUnit { Kilograms, Pounds }
 
 class HowMuchYouWeigh extends StatefulWidget {
+  const HowMuchYouWeigh({super.key});
+
   @override
   _HowMuchYouWeighState createState() => _HowMuchYouWeighState();
 }
@@ -110,12 +113,12 @@ class _HowMuchYouWeighState extends State<HowMuchYouWeigh> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            Text(
+            const Text(
               'Сколько вы весите?',
               style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Container(
               height: 35,
               decoration: BoxDecoration(
@@ -135,9 +138,9 @@ class _HowMuchYouWeighState extends State<HowMuchYouWeigh> {
                 borderWidth: 0,
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             buildSelectedRuler(),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             BMIIndicator(bmi: bmiValue),
             NextHowCustomButtonWidget(
               buttonText: 'СЛЕДУЮЩЕЕ',
@@ -166,7 +169,7 @@ class _HowMuchYouWeighState extends State<HowMuchYouWeigh> {
   Widget buildToggleButton(String label, int index) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.horizontal(
+        borderRadius: const BorderRadius.horizontal(
           left: Radius.circular(30),
           right: Radius.circular(30),
         ),

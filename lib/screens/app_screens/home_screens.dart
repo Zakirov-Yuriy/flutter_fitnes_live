@@ -13,8 +13,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.edit_calendar_outlined),
-          color: Color.fromRGBO(255, 51, 119, 1),
+          icon: const Icon(Icons.edit_calendar_outlined),
+          color: const Color.fromRGBO(255, 51, 119, 1),
           onPressed: () {
             // Действие по нажатию на иконку календаря
           },
@@ -30,8 +30,8 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Container(
               alignment: Alignment.bottomLeft,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 10, bottom: 10),
+              child: const Padding(
+                padding: EdgeInsets.only(left: 10, bottom: 10),
                 child: Text(
                   'Фитнес для женщин',
                   style: TextStyle(
@@ -44,8 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
             Container(
               alignment: Alignment.bottomLeft,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 10, bottom: 5),
+              child: const Padding(
+                padding: EdgeInsets.only(left: 10, bottom: 5),
                 child: Text(
                   'Программа',
                   style: TextStyle(
@@ -57,11 +57,11 @@ class _HomeScreenState extends State<HomeScreen> {
             // Контент страницы
             // Карусель с двумя контейнерами
             ContainerCarouselOne(),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ContainerCarousel(),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ContainerCarousel(),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ContainerCarousel(),
             // Дополнительный контент
           ],

@@ -40,14 +40,14 @@ class _EnterYourBirthdayState extends State<EnterYourBirthday> {
         children: [
           Text(
             _labelTitle,
-            style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           _buildContainerWithText(),
-          SizedBox(height: 40.0),
+          const SizedBox(height: 40.0),
           _buildYearPicker(),
-          SizedBox(height: 50.0),
+          const SizedBox(height: 50.0),
           NextCustomButtonWidget(
             buttonText: 'СЛЕДУЮЩЕЕ',
             destinationWidget: IndicateYourHeightScreen(),
@@ -61,13 +61,13 @@ class _EnterYourBirthdayState extends State<EnterYourBirthday> {
 
   Widget _buildContainerWithText() {
     return Container(
-      margin: EdgeInsets.only(right: 6, left: 6),
-      padding: EdgeInsets.all(10),
+      margin: const EdgeInsets.only(right: 6, left: 6),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.0),
         color: isBackgroundChanged
-            ? Color.fromRGBO(255, 51, 119, 1)
-            : Color.fromARGB(255, 234, 233, 233),
+            ? const Color.fromRGBO(255, 51, 119, 1)
+            : const Color.fromARGB(255, 234, 233, 233),
       ),
       child: Center(
         child: Text(
@@ -96,7 +96,7 @@ class _EnterYourBirthdayState extends State<EnterYourBirthday> {
           (index) => Center(
             child: Text(
               '${1932 + index}',
-              style: TextStyle(fontSize: 20.0),
+              style: const TextStyle(fontSize: 20.0),
             ),
           ),
         ),

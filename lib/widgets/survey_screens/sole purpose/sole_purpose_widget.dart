@@ -20,7 +20,7 @@ class SolePurposeWidget extends StatefulWidget {
   final Color textColor;
   final IconData? customIcon; // Добавлен параметр для кастомной иконки
 
-  SolePurposeWidget({
+  const SolePurposeWidget({
     Key? key,
     required this.labelText,
     required this.imagePath,
@@ -109,7 +109,7 @@ class _SolePurposeWidgetState extends State<SolePurposeWidget> {
                       color: widget.iconColor,
                       size: 50,
                     ),
-                  SizedBox(width: 20),
+                  const SizedBox(width: 20),
                   Expanded(
                     child: SingleChildScrollView(
                       child: Column(
@@ -123,10 +123,10 @@ class _SolePurposeWidgetState extends State<SolePurposeWidget> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          SizedBox(height: 5),
+                          const SizedBox(height: 5),
                           Text(
                             widget.additionalSubText,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 16,
                               color: Colors.grey,
                             ),

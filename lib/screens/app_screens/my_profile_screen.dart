@@ -40,7 +40,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
     weight = Provider.of<WeightProvider>(context).weight.round();
     return Scaffold(
       appBar: AppBar(
-        title: Text('Мой профиль'),
+        title: const Text('Мой профиль'),
         centerTitle: true,
       ),
       body: Padding(
@@ -51,49 +51,23 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
             // Аватарка
             buildAvatar(),
 
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
             // Текст "Пользователь"
             buildUserNameText(),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
-            // Кнопки переключения
-            // Center(
-            //   child: Container(
-            //     width: 300,
-            //     height: 35,
-            //     decoration: BoxDecoration(
-            //       color: const Color.fromARGB(255, 230, 228, 228),
-            //       borderRadius: BorderRadius.circular(10),
-            //     ),
-            //     child: Center(
-            //       child: ToggleButtons(
-            //         children: [
-            //           buildToggleButton('Kg, Cm.', 0),
-            //           buildToggleButton('Ld, Ft.', 1),
-            //         ],
-            //         isSelected: isSelected,
-            //         onPressed: handleToggleButtons,
-            //         selectedColor: Colors.transparent,
-            //         fillColor: Colors.transparent,
-            //         borderColor: Colors.transparent,
-            //         borderWidth: 0,
-            //       ),
-            //     ),
-            //   ),
-            // ),
-
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Строка с ростом
             buildProfileRow('Рост',
                 '$heightValue ${heightUnit == HeightUnit.centimeters ? 'см' : 'ft'}'),
 
             // Строка с весом
             buildProfileRow('Вес', '${formattedWeight()} кг'),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Строка с полом
             buildGenderRow(),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Строка с годом рождения
             buildProfileRow('Год рождения', '$birthYear'),
 
@@ -107,7 +81,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
   Widget buildToggleButton(String label, int index) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.horizontal(
+        borderRadius: const BorderRadius.horizontal(
           left: Radius.circular(10),
           right: Radius.circular(10),
         ),
@@ -151,7 +125,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
           radius: 50,
           backgroundImage: avatarUrl != null
               ? NetworkImage(avatarUrl!)
-              : AssetImage('assets/images/avatar.jpg') as ImageProvider,
+              : const AssetImage('assets/images/avatar.jpg') as ImageProvider,
           child: avatarUrl == null
               ? IconButton(
                   icon: Icon(
@@ -180,13 +154,13 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
           children: [
             Text(
               userName,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(width: 10),
-            Icon(
+            const SizedBox(width: 10),
+            const Icon(
               Icons.mode_edit_outlined, // Иконка карандаша
               size: 23,
             ),
@@ -203,25 +177,25 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
         String tempName = userName;
 
         return AlertDialog(
-          title: Text('Введите имя и фамилию'),
+          title: const Text('Введите имя и фамилию'),
           content: TextField(
             onChanged: (value) {
               tempName = value;
             },
-            decoration: InputDecoration(hintText: 'Имя и фамилия'),
+            decoration: const InputDecoration(hintText: 'Имя и фамилия'),
           ),
           actions: <Widget>[
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop(); // Закрыть диалог без сохранения
               },
-              child: Text('Отмена'),
+              child: const Text('Отмена'),
             ),
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop(tempName); // Сохранить введенное имя
               },
-              child: Text('Сохранить'),
+              child: const Text('Сохранить'),
             ),
           ],
         );
@@ -241,17 +215,17 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Выберите источник изображения'),
+          title: const Text('Выберите источник изображения'),
           actions: <Widget>[
             TextButton(
-              child: Text('Галерея'),
+              child: const Text('Галерея'),
               onPressed: () {
                 _getImage(ImageSource.gallery);
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: Text('Камера'),
+              child: const Text('Камера'),
               onPressed: () {
                 _getImage(ImageSource.camera);
                 Navigator.of(context).pop();
@@ -285,14 +259,14 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
       children: [
         Text(
           label,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
         ),
         Text(
           value,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 18,
           ),
         ),
@@ -305,7 +279,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
+        const Text(
           'Пол',
           style: TextStyle(
             fontSize: 18,
@@ -323,15 +297,15 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.pink, // Цвет текста
-                padding: EdgeInsets.symmetric(
+                padding: const EdgeInsets.symmetric(
                     vertical: 8, horizontal: 50), // Поля вокруг текста
               ),
-              child: Text(
+              child: const Text(
                 'М',
                 style: TextStyle(fontSize: 18),
               ),
             ),
-            SizedBox(width: 15), // Увеличьте расстояние между кнопками
+            const SizedBox(width: 15), // Увеличьте расстояние между кнопками
             ElevatedButton(
               onPressed: () {
                 setState(() {
@@ -341,17 +315,17 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.pink, // Цвет текста
-                padding: EdgeInsets.symmetric(
+                padding: const EdgeInsets.symmetric(
                     vertical: 8, horizontal: 50), // Поля вокруг текста
               ),
-              child: Text(
+              child: const Text(
                 'Ж',
                 style: TextStyle(fontSize: 18),
               ),
             ),
           ],
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
       ],
     );
   }

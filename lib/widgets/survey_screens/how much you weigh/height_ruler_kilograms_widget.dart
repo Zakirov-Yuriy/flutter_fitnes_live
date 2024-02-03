@@ -4,7 +4,7 @@ class HeightRulerKilograms extends StatefulWidget {
   final double height;
   final ValueChanged<double>? onChanged;
 
-  HeightRulerKilograms({required this.height, this.onChanged});
+  const HeightRulerKilograms({super.key, required this.height, this.onChanged});
 
   @override
   _HeightRulerKilogramsState createState() => _HeightRulerKilogramsState();
@@ -25,13 +25,13 @@ class _HeightRulerKilogramsState extends State<HeightRulerKilograms> {
             children: [
               Text(
                 '${middleValue.toInt()}',
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                   fontSize: 35.0,
                 ),
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               Expanded(
                 child: NotificationListener<ScrollUpdateNotification>(
                   onNotification: (notification) {
@@ -95,7 +95,7 @@ class _HeightRulerKilogramsState extends State<HeightRulerKilograms> {
                               width: 1,
                               color: lineColor,
                             ),
-                            SizedBox(height: 20), // Добавлен отступ
+                            const SizedBox(height: 20), // Добавлен отступ
                           ],
                         ),
                       );
@@ -103,7 +103,7 @@ class _HeightRulerKilogramsState extends State<HeightRulerKilograms> {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         ),
@@ -114,7 +114,7 @@ class _HeightRulerKilogramsState extends State<HeightRulerKilograms> {
           child: Container(
             width: 2,
             height: 74,
-            color: Color.fromRGBO(255, 51, 119, 1),
+            color: const Color.fromRGBO(255, 51, 119, 1),
           ),
         ),
       ],

@@ -6,7 +6,8 @@ class NextRulerCustomButtonWidget extends StatelessWidget {
   final bool isButtonEnabled;
   final VoidCallback? onPressed;
 
-  NextRulerCustomButtonWidget({
+  const NextRulerCustomButtonWidget({
+    super.key,
     required this.buttonText,
     required this.destinationWidget,
     required this.isButtonEnabled,
@@ -31,7 +32,7 @@ class NextRulerCustomButtonWidget extends StatelessWidget {
           ),
           child: Text(
             buttonText,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 24.0,
               color: Colors.white,
             ),

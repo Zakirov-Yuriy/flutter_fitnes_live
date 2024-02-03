@@ -52,10 +52,11 @@ class _SolePurposeState extends State<SolePurpose> {
             children: [
               Text(
                 _labelTitle,
-                style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 40.0),
+              const SizedBox(height: 40.0),
               SolePurposeWidget(
                 labelText: 'Сбросить вес',
                 imagePath: 'assets/images/survey_screens_image/snap1.png',
@@ -65,7 +66,7 @@ class _SolePurposeState extends State<SolePurpose> {
                 additionalSubText: 'Путь к здоровому и активному образу жизни!',
                 customIcon: CostomIcons.sports_4fzqtvt977t1,
               ),
-              SizedBox(height: 10.0),
+              const SizedBox(height: 10.0),
               SolePurposeWidget(
                 labelText: 'Нарастить мышечную массу',
                 imagePath: 'assets/images/survey_screens_image/snap2.png',
@@ -75,7 +76,7 @@ class _SolePurposeState extends State<SolePurpose> {
                 additionalSubText:
                     'Ваш тренер поможет активировать каждую мышцу!',
               ),
-              SizedBox(height: 10.0),
+              const SizedBox(height: 10.0),
               SolePurposeWidget(
                 labelText: 'Быть в форме',
                 imagePath: 'assets/images/survey_screens_image/snap3.png',
@@ -91,7 +92,7 @@ class _SolePurposeState extends State<SolePurpose> {
         ),
       ),
       bottomNavigationBar: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
         child: ElevatedButton(
           onPressed: isButtonEnabled
               ? () {
@@ -113,7 +114,7 @@ class _SolePurposeState extends State<SolePurpose> {
               borderRadius: BorderRadius.circular(30),
             ),
           ),
-          child: Text(
+          child: const Text(
             'СЛЕДУЮЩЕЕ',
             style: TextStyle(
               fontSize: 24.0,

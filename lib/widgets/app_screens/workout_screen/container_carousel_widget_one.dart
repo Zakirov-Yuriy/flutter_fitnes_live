@@ -49,20 +49,20 @@ class ContainerCarouselOne extends StatelessWidget {
                     children: [
                       Text(
                         titles[index],
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
                             fontSize: 16),
                       ),
-                      SizedBox(height: 5),
+                      const SizedBox(height: 5),
                       Text(
                         subtitles[index],
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.black,
                             fontSize: 22,
                             fontWeight: FontWeight.bold),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       // Условие для отображения кнопки "Начать" только для Программа 7x4
                       if (index == 0)
                         ElevatedButton(
@@ -75,13 +75,14 @@ class ContainerCarouselOne extends StatelessWidget {
                           },
                           style: ElevatedButton.styleFrom(
                             foregroundColor: Colors.white,
-                            backgroundColor: Color.fromRGBO(255, 51, 119, 1),
+                            backgroundColor:
+                                const Color.fromRGBO(255, 51, 119, 1),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15),
                             ),
-                            minimumSize: Size(150, 35),
+                            minimumSize: const Size(150, 35),
                           ),
-                          child: Text(
+                          child: const Text(
                             'Начать',
                             style: TextStyle(fontSize: 18),
                           ),
@@ -104,10 +105,10 @@ class ContainerCarouselOne extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15),
                             ),
-                            minimumSize: Size(
+                            minimumSize: const Size(
                                 150, 35), // задаем минимальные размеры кнопки
                           ),
-                          child: Text(
+                          child: const Text(
                             'Другой',
                             style: TextStyle(fontSize: 18),
                           ),

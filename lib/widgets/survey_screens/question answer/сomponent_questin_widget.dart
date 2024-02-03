@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 // Класс для создания компонента (виджета) с иконкой
 class ComponentWidget extends StatelessWidget {
   // Конструктор, принимающий ключ и иконку для отображения
-  ComponentWidget({Key? key, required this.iconData}) : super(key: key);
+  const ComponentWidget({Key? key, required this.iconData}) : super(key: key);
 
   // Поле для хранения иконки
   final IconData iconData;

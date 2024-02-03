@@ -1,108 +1,78 @@
-//Загрущочный экран
-// Загружаем необходимые библиотеки
-import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_fitnes_live/screens/app_screens/main_screen.dart';
+// Подключите ваш главный экран
 import 'package:flutter_fitnes_live/screens/survey_screens/next_anna_screen.dart';
 
-// Класс для создания загрузочного экрана
+// Импортируйте shared_preferences
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'splash_image_screen.dart';
+
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
-  // Контроллер для управления анимацией
   late AnimationController _controller;
-
-  // Анимация для изменения размера
-  late Animation<double> _animation;
 
   @override
   void initState() {
     super.initState();
-
-    // Инициализация контроллера анимации
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 3),
+      duration: const Duration(seconds: 2),
     );
 
-    // Инициализация анимации
-    _animation = Tween(begin: 1.0, end: 1.2).animate(_controller);
-
-    // Запуск анимации
     _controller.forward();
 
-    // Имитация задержки загрузки (в данном случае 3 секунды)
-    Future.delayed(const Duration(seconds: 3), () {
-      // После завершения задержки перейдите на следующий экран
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => NextScreen(),
-        ),
-      );
+    // После завершения анимации проверяем выполненность опросника и переходим на соответствующий экран
+    _controller.addStatusListener((status) async {
+      if (status == AnimationStatus.completed) {
+        // Здесь проверяем выполненность опросника
+        bool isSurveyCompleted = await checkSurveyCompletion();
+        if (isSurveyCompleted) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const MainScreen(),
+            ),
+          );
+        } else {
+          Future.delayed(const Duration(milliseconds: 300), () {
+            // Добавляем небольшую задержку перед переходом на следующий экран
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => NextScreen(),
+              ),
+            );
+          });
+        }
+      }
     });
   }
 
   @override
   void dispose() {
-    _controller
-        .dispose(); // Обязательно освободите ресурсы контроллера анимации
+    _controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          // Фоновая картинка с анимацией размера
-          AnimatedBuilder(
-            animation: _animation,
-            builder: (context, child) {
-              return Transform.scale(
-                scale: _animation.value,
-                child: Image.asset(
-                  'assets/images/survey_screens_image/bg.jpeg',
-                  fit: BoxFit.cover,
-                ),
-              );
-            },
-          ),
+    return const SplashImageScreen();
+  }
 
-          // Текст
-          Positioned(
-            bottom: 230.0,
-            width: MediaQuery.of(context).size.width,
-            child: const Center(
-              child: Column(
-                children: [
-                  // Заголовок "Workout" с белым цветом и размером шрифта 48.0
-                  Text(
-                    'Workout',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 48.0,
-                    ),
-                  ),
-                  // Подзаголовок "for women" с цветом #FF3377 и размером шрифта 48.0
-                  Text(
-                    'for women',
-                    style: TextStyle(
-                      color: Color.fromRGBO(255, 51, 119, 1),
-                      fontSize: 48.0,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
+  // Функция для проверки выполненности опросника
+  Future<bool> checkSurveyCompletion() async {
+    // Здесь вставьте код для проверки выполненности опросника
+    // Например, используйте shared_preferences или другой механизм для сохранения состояния опросника
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool isCompleted = prefs.getBool('survey_completed') ?? false;
+    return isCompleted;
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class YourParentWidget extends StatelessWidget {
+  const YourParentWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,24 +15,27 @@ class YourParentWidget extends StatelessWidget {
               WhatYouWantToWorkOnWidget(
                 labelText: 'Руки',
                 // Параметры для первой кнопки "Руки"
-                startPoint: Offset(0, 0), // Начальная точка первой линии
-                endPoint: Offset(0, 0), // Конечная точка первой линии
+                startPoint: const Offset(0, 0), // Начальная точка первой линии
+                endPoint: const Offset(0, 0), // Конечная точка первой линии
                 ballRadius: 0.0, // Радиус шарика на конце первой линии
-                secondLineEnd: Offset(0, 0), // Конечная точка второй линии
+                secondLineEnd:
+                    const Offset(0, 0), // Конечная точка второй линии
                 secondBallRadius: 0.0, // Радиус шарика на конце второй линии
                 onSelected: (isSelected) {
                   // Обработка события выбора
                   print('Руки выбраны: $isSelected');
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               WhatYouWantToWorkOnWidget(
                 labelText: 'Грудь',
                 // Параметры для второй кнопки "Грудь"
-                startPoint: Offset(50, 50), // Начальная точка первой линии
-                endPoint: Offset(150, 150), // Конечная точка первой линии
+                startPoint:
+                    const Offset(50, 50), // Начальная точка первой линии
+                endPoint: const Offset(150, 150), // Конечная точка первой линии
                 ballRadius: 15.0, // Радиус шарика на конце первой линии
-                secondLineEnd: Offset(200, 200), // Конечная точка второй линии
+                secondLineEnd:
+                    const Offset(200, 200), // Конечная точка второй линии
                 secondBallRadius: 8.0, // Радиус шарика на конце второй линии
                 onSelected: (isSelected) {
                   // Обработка события выбора
@@ -166,7 +171,7 @@ class LinePainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     if (isSelected) {
       final Paint paint = Paint()
-        ..color = Color.fromRGBO(255, 51, 119, 1)
+        ..color = const Color.fromRGBO(255, 51, 119, 1)
         ..strokeCap = StrokeCap.round
         ..strokeWidth = 2.0;
 
@@ -178,7 +183,8 @@ class LinePainter extends CustomPainter {
       canvas.drawLine(secondLineStart, secondLineEnd, paint);
 
       // Рисуем шарик на конце второй линии
-      final Paint ballPaint = Paint()..color = Color.fromRGBO(255, 51, 119, 1);
+      final Paint ballPaint = Paint()
+        ..color = const Color.fromRGBO(255, 51, 119, 1);
       canvas.drawCircle(secondLineEnd, secondBallRadius, ballPaint);
     }
   }

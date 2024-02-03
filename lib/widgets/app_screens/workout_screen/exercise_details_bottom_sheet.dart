@@ -9,7 +9,8 @@ class ExerciseDetailsBottomSheet extends StatelessWidget {
   final String setText;
   final String durationText;
 
-  ExerciseDetailsBottomSheet({
+  const ExerciseDetailsBottomSheet({
+    super.key,
     required this.imagePath,
     required this.exerciseText,
     required this.subtitleText,
@@ -21,7 +22,7 @@ class ExerciseDetailsBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -29,12 +30,12 @@ class ExerciseDetailsBottomSheet extends StatelessWidget {
               image: AssetImage(imagePath),
             ),
             Padding(
-              padding: EdgeInsets.only(bottom: 10, top: 16),
+              padding: const EdgeInsets.only(bottom: 10, top: 16),
               child: Row(
                 children: [
                   Text(
                     exerciseText,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
@@ -48,43 +49,43 @@ class ExerciseDetailsBottomSheet extends StatelessWidget {
               children: [
                 Text(
                   setText,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18,
                   ),
                 ),
                 Text(
                   durationText,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18,
                   ),
                 ),
               ],
             ),
-            Divider(
+            const Divider(
               color: Color.fromRGBO(255, 51, 119, 1),
               thickness: 1,
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
               subtitleText,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
               ),
             ),
-            SizedBox(height: 26),
+            const SizedBox(height: 26),
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pop(); // Закрытие BottomSheet
               },
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 50),
-                backgroundColor: Color.fromRGBO(
+                backgroundColor: const Color.fromRGBO(
                     255, 51, 119, 1), // Цвет кнопки при отсутствии onPressed
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),
               ),
-              child: Text(
+              child: const Text(
                 'Закрыть',
                 style: TextStyle(
                   fontSize: 24.0,

@@ -35,11 +35,11 @@ class _WhatYouWantToWorkOnState extends State<WhatYouWantToWorkOn> {
           children: [
             Text(
               _labelTitle,
-              style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ), // Заголовок экрана
 
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
 
             Row(
               children: [
@@ -57,136 +57,87 @@ class _WhatYouWantToWorkOnState extends State<WhatYouWantToWorkOn> {
                         labelText: 'Руки',
                         onSelected: (isSelected) =>
                             updateButtonState(isSelected, 0),
-                        startPoint: Offset(0, 30),
-                        endPoint: Offset(-100, 30),
+                        startPoint: const Offset(0, 30),
+                        endPoint: const Offset(-100, 30),
                         ballRadius: 0.0,
-                        secondLineEnd: Offset(-110, 85),
+                        secondLineEnd: const Offset(-110, 85),
                         secondBallRadius: 5.0,
                       ),
-                      SizedBox(height: 20.0),
+                      const SizedBox(height: 20.0),
 
                       // Виджет для выбора "Грудь"
                       WhatYouWantToWorkOnWidget(
                         labelText: 'Грудь',
                         onSelected: (isSelected) =>
                             updateButtonState(isSelected, 1),
-                        startPoint: Offset(30, 30),
-                        endPoint: Offset(-60, 50),
+                        startPoint: const Offset(30, 30),
+                        endPoint: const Offset(-60, 50),
                         ballRadius: 0.0,
-                        secondLineEnd: Offset(-150, 30),
+                        secondLineEnd: const Offset(-150, 30),
                         secondBallRadius: 5.0,
                       ),
-                      SizedBox(height: 20.0),
+                      const SizedBox(height: 20.0),
 
                       // Виджет для выбора "Живот"
                       WhatYouWantToWorkOnWidget(
                         labelText: 'Живот',
                         onSelected: (isSelected) =>
                             updateButtonState(isSelected, 2),
-                        startPoint: Offset(10, 10),
-                        endPoint: Offset(-20, 20),
+                        startPoint: const Offset(10, 10),
+                        endPoint: const Offset(-20, 20),
                         ballRadius: 5.0,
-                        secondLineEnd: Offset(-145, -10),
+                        secondLineEnd: const Offset(-145, -10),
                         secondBallRadius: 5.0,
                       ),
-                      SizedBox(height: 20.0),
+                      const SizedBox(height: 20.0),
 
                       // Виджет для выбора "Ягодицы"
                       WhatYouWantToWorkOnWidget(
                         labelText: 'Ягодицы',
                         onSelected: (isSelected) =>
                             updateButtonState(isSelected, 3),
-                        startPoint: Offset(40, 30),
-                        endPoint: Offset(-20, 20),
+                        startPoint: const Offset(40, 30),
+                        endPoint: const Offset(-20, 20),
                         ballRadius: 5.0,
-                        secondLineEnd: Offset(-105, -70),
+                        secondLineEnd: const Offset(-105, -70),
                         secondBallRadius: 5.0,
                       ),
-                      SizedBox(height: 20.0),
+                      const SizedBox(height: 20.0),
 
                       // Виджет для выбора "Икры"
                       WhatYouWantToWorkOnWidget(
                         labelText: 'Икры',
                         onSelected: (isSelected) =>
                             updateButtonState(isSelected, 4),
-                        startPoint: Offset(10, 30),
-                        endPoint: Offset(-50, -22),
+                        startPoint: const Offset(10, 30),
+                        endPoint: const Offset(-50, -22),
                         ballRadius: 5.0,
-                        secondLineEnd: Offset(-150, 10),
+                        secondLineEnd: const Offset(-150, 10),
                         secondBallRadius: 5.0,
                       ),
-                      SizedBox(height: 20.0),
-
-                      // Дополнительный вариант "Все тело" (закомментирован)
-                      // WhatYouWantToWorkOnWidget(
-                      //   labelText: 'Все тело',
-                      //   onSelected: (isSelected) =>
-                      //       updateButtonState(isSelected, 5),
-                      //   startPoint: Offset(0, 0),
-                      //   endPoint: Offset(0, 0),
-                      //   ballRadius: 0.0,
-                      //   secondLineEnd: Offset(0, 0),
-                      //   secondBallRadius: 0,
-                      // ),
+                      const SizedBox(height: 20.0),
                     ],
                   ),
                 ),
               ],
             ),
 
-            SizedBox(height: 10.0),
+            const SizedBox(height: 10.0),
             NextCustomButtonWidget(
-              buttonText: 'СЛЕДУЮЩЕЕ',
-              destinationWidget: WeCanCope(),
-              completedAnswers: completedAnswers,
-              onPressed: isButtonEnabled
-                  ? () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => WeCanCope()),
-                      );
-                      setState(() {
-                        completedAnswers++;
-                      });
-                    }
-                  : null,
-            ),
-            // Expanded(
-            //   child: Align(
-            //     alignment: FractionalOffset.bottomCenter,
-            //     child: ElevatedButton(
-            //       onPressed: isButtonEnabled
-            //           ? () {
-            //               Navigator.push(
-            //                 context,
-            //                 MaterialPageRoute(
-            //                     builder: (context) => WeCanCope()),
-            //               );
-            //               setState(() {
-            //                 completedAnswers++;
-            //               });
-            //             }
-            //           : null,
-            //       style: ElevatedButton.styleFrom(
-            //         minimumSize: const Size(double.infinity, 50),
-            //         backgroundColor: isButtonEnabled
-            //             ? const Color.fromRGBO(255, 51, 119, 1)
-            //             : Colors.grey,
-            //         shape: RoundedRectangleBorder(
-            //           borderRadius: BorderRadius.circular(30),
-            //         ),
-            //       ),
-            //       child: Text(
-            //         'СЛЕДУЮЩЕЕ',
-            //         style: TextStyle(
-            //           fontSize: 24.0,
-            //           color: Colors.white,
-            //         ),
-            //       ),
-            //     ),
-            //   ),
-            // ),
-            //// Кнопка для перехода на следующий экран
+                buttonText: 'СЛЕДУЮЩЕЕ',
+                destinationWidget: WeCanCope(),
+                completedAnswers: completedAnswers,
+                onPressed: isButtonEnabled
+                    ? () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => WeCanCope()),
+                        );
+                        setState(() {
+                          completedAnswers++;
+                        });
+                      }
+                    : null),
           ],
         ),
       ),

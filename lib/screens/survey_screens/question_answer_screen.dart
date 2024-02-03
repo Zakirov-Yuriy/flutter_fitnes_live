@@ -44,94 +44,59 @@ class _GoalScreenState extends State<GoalScreen> {
           children: [
             Text(
               _labelTitle,
-              style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             // Виджет для вопроса с вариантами ответов
             QuestionAnswerWidget(
               iconData: Icons.thumb_up_outlined,
               labelText: 'Чувствовать себя уверенно',
               onSelected: (isSelected) => updateButtonState(isSelected),
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             QuestionAnswerWidget(
               iconData: Icons.sentiment_satisfied_alt_outlined,
               labelText: 'Снять стресс',
               onSelected: (isSelected) => updateButtonState(isSelected),
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             QuestionAnswerWidget(
               iconData: Icons.favorite_border_outlined,
               labelText: 'Улучшить здоровье',
               onSelected: (isSelected) => updateButtonState(isSelected),
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             QuestionAnswerWidget(
               iconData: Icons.electric_bolt_outlined,
               labelText: 'Зарядится энергий',
               onSelected: (isSelected) => updateButtonState(isSelected),
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             QuestionAnswerWidget(
               iconData: Icons.self_improvement_outlined,
               labelText: 'Набрать форму',
               onSelected: (isSelected) => updateButtonState(isSelected),
             ),
-            SizedBox(height: 10.0),
+            const SizedBox(height: 10.0),
             // Виджет "Поднятая кнопка" для перехода к следующему вопросу
 
             NextCustomButtonWidget(
-              buttonText: 'СЛЕДУЮЩЕЕ',
-              destinationWidget: SolePurpose(),
-              completedAnswers: completedAnswers,
-              onPressed: isButtonEnabled
-                  ? () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SolePurpose()),
-                      );
-                      setState(() {
-                        completedAnswers++;
-                      });
-                    }
-                  : null,
-            ),
-            // Expanded(
-            //   child: Align(
-            //     alignment: FractionalOffset.bottomCenter,
-            //     child: ElevatedButton(
-            //       onPressed: isButtonEnabled
-            //           ? () {
-            //               Navigator.push(
-            //                 context,
-            //                 MaterialPageRoute(
-            //                     builder: (context) => SolePurpose()),
-            //               );
-            //               setState(() {
-            //                 completedAnswers++;
-            //               });
-            //             }
-            //           : null,
-            //       style: ElevatedButton.styleFrom(
-            //         minimumSize: const Size(double.infinity, 50),
-            //         backgroundColor: isButtonEnabled
-            //             ? const Color.fromRGBO(255, 51, 119, 1)
-            //             : Colors.grey,
-            //         shape: RoundedRectangleBorder(
-            //           borderRadius: BorderRadius.circular(30),
-            //         ),
-            //       ),
-            //       child: Text(
-            //         'СЛЕДУЮЩЕЕ',
-            //         style: TextStyle(
-            //           fontSize: 24.0,
-            //           color: Colors.white,
-            //         ),
-            //       ),
-            //     ),
-            //   ),
-            // ),
+                buttonText: 'СЛЕДУЮЩЕЕ',
+                destinationWidget: SolePurpose(),
+                completedAnswers: completedAnswers,
+                onPressed: isButtonEnabled
+                    ? () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SolePurpose()),
+                        );
+                        setState(() {
+                          completedAnswers++;
+                        });
+                      }
+                    : null),
           ],
         ),
       ),

@@ -14,10 +14,8 @@ void main() {
         ChangeNotifierProvider(create: (context) => HeightProvider()),
         ChangeNotifierProvider(create: (context) => WeightProvider()),
         ChangeNotifierProvider(create: (context) => BirthYearProvider()),
-
-        // Добавьте другие провайдеры, если нужно
       ],
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
@@ -27,7 +25,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
     );

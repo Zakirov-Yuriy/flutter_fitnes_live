@@ -6,7 +6,8 @@ class NextHowCustomButtonWidget extends StatelessWidget {
   final bool isButtonEnabled;
   final VoidCallback? onPressed;
 
-  NextHowCustomButtonWidget({
+  const NextHowCustomButtonWidget({
+    super.key,
     required this.buttonText,
     required this.destinationWidget,
     required this.isButtonEnabled,
@@ -31,7 +32,7 @@ class NextHowCustomButtonWidget extends StatelessWidget {
           ),
           child: Text(
             buttonText,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 24.0,
               color: Colors.white,
             ),

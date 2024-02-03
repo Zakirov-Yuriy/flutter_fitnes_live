@@ -10,11 +10,11 @@ class YourBodyContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Divider(
+        const Divider(
           color: Colors.grey,
           thickness: 1,
         ),
-        ExerciseWidget(
+        const ExerciseWidget(
           imagePath: 'assets/images/workout_image/Running.gif',
           exerciseText: 'Бег',
           setText: 'Длительность',
@@ -23,7 +23,7 @@ class YourBodyContent extends StatelessWidget {
               'Эта тренировка является отличным кардионагрузочным упражнением и может быть эффективной частью фитнес-регима. Она улучшает выносливость, укрепляет ноги и ягодицы, а также способствует сжиганию калорий.',
         ),
         CustomDivider(),
-        ExerciseWidget(
+        const ExerciseWidget(
           imagePath: 'assets/images/workout_image/Sumo_Squat_Jumps.gif',
           exerciseText: 'Сумо приседания прыжки',
           setText: 'Длительность',
@@ -32,7 +32,7 @@ class YourBodyContent extends StatelessWidget {
               'Сумо приседания с прыжками: станьте в позу с широким расставлением ног, носки наружу. Приседайте, затем с силой прыгайте вверх. Повторяйте для укрепления ног и кардио.',
         ),
         CustomDivider(),
-        ExerciseWidget(
+        const ExerciseWidget(
           imagePath: 'assets/images/workout_image/Mountain_Climbers.gif',
           exerciseText: 'Горные альпинисты',
           setText: 'Длительность',
@@ -41,7 +41,7 @@ class YourBodyContent extends StatelessWidget {
               'Примите планку, подтягивайте колено к груди поочередно, поддерживая высокий темп. Укрепляйте ядро и ноги, улучшайте выносливость. ',
         ),
         CustomDivider(),
-        ExerciseWidget(
+        const ExerciseWidget(
           imagePath: 'assets/images/workout_image/Touch_Ground_Star.gif',
           exerciseText: 'Звездный прыжок',
           setText: 'Длительность',
@@ -50,7 +50,7 @@ class YourBodyContent extends StatelessWidget {
               'Стартуйте в широкой постановке, выпрыгивайте вверх, руки и ноги расправлены. Приземляйтесь мягко. Эффективно для кардио и укрепления мышц.',
         ),
         CustomDivider(),
-        ExerciseWidget(
+        const ExerciseWidget(
           imagePath: 'assets/images/workout_image/Boxing_Jabs.gif',
           exerciseText: 'Боксерские джебы',
           setText: 'Длительность',
@@ -59,7 +59,7 @@ class YourBodyContent extends StatelessWidget {
               'Стойте в боксерской позе, быстро выполняйте короткие удары левой и правой рукой вперед. Развивайте скорость, координацию и реакцию.',
         ),
         CustomDivider(),
-        ExerciseWidget(
+        const ExerciseWidget(
           imagePath: 'assets/images/workout_image/High_Knees.gif',
           exerciseText: 'Высокие колени',
           setText: 'Длительность',
@@ -68,7 +68,7 @@ class YourBodyContent extends StatelessWidget {
               'Бегите на месте, поднимая колени как можно выше. Увеличивайте темп для усиленной кардионагрузки и улучшения силы ног. Эффективно для разминки.',
         ),
         CustomDivider(),
-        ExerciseWidget(
+        const ExerciseWidget(
           imagePath: 'assets/images/workout_image/Lunge_Jumps.gif',
           exerciseText: 'Прыжки с выпадом',
           setText: 'Длительность',
@@ -77,7 +77,7 @@ class YourBodyContent extends StatelessWidget {
               'Делайте шаг вперед, выпадая на одну ногу, затем прыгайте вверх и меняйте ноги в воздухе. Укрепляйте ноги и ягодицы. Повторяйте для эффективного тренировочного комплекса.',
         ),
         CustomDivider(),
-        ExerciseWidget(
+        const ExerciseWidget(
           imagePath: 'assets/images/workout_image/Lateral_Lunges.gif',
           exerciseText: 'Боковые выпады',
           setText: 'Длительность',
@@ -86,7 +86,7 @@ class YourBodyContent extends StatelessWidget {
               'Стойте прямо, делайте шаг вбок, сгибая одну ногу в колене. Возвращайтесь в исходное положение. Укрепляйте бедра и ягодицы. Повторяйте для баланса и силы.',
         ),
         CustomDivider(),
-        ExerciseWidget(
+        const ExerciseWidget(
           imagePath: 'assets/images/workout_image/Squat_Dumbbell.gif',
           exerciseText: 'Приседание с гантелью',
           setText: 'Длительность',
@@ -95,7 +95,7 @@ class YourBodyContent extends StatelessWidget {
               'Возьмите гантель, станьте в позу приседания, опуститесь, сохраняя прямую спину. Поднимайтесь обратно. Укрепляйте ноги и ягодицы. Повторяйте для силы и тонуса.',
         ),
         CustomDivider(),
-        ExerciseWidget(
+        const ExerciseWidget(
           imagePath: 'assets/images/workout_image/On_Side_Hip_Raises.gif',
           exerciseText: 'Боковые подъемы бедер',
           setText: 'Длительность',

@@ -9,7 +9,7 @@ class MesmerizingFigure extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
                 'assets/images/survey_screens_image/girl-measuring.png'),
@@ -20,9 +20,9 @@ class MesmerizingFigure extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Заголовок и текст
-            SizedBox(height: 550),
+            const SizedBox(height: 550),
             Padding(
-              padding: EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -57,41 +57,8 @@ class MesmerizingFigure extends StatelessWidget {
             ),
             StartCustomButtonWidget(
               buttonText: 'НАЧАТЬ',
-              destinationWidget: MainScreen(),
+              destinationWidget: const MainScreen(),
             ),
-            // Expanded(
-            //   child: Align(
-            //     alignment: FractionalOffset.bottomCenter,
-            //     child: Padding(
-            //       padding:
-            //           const EdgeInsets.only(bottom: 15.0, left: 16, right: 16),
-            //       child: ElevatedButton(
-            //         onPressed: () {
-            //           Navigator.push(
-            //             context,
-            //             MaterialPageRoute(
-            //                 builder: (context) => HowMuchYouWeigh()),
-            //           );
-            //           // Добавьте код здесь для обработки нажатия кнопки
-            //         },
-            //         style: ElevatedButton.styleFrom(
-            //           minimumSize: const Size(double.infinity, 50),
-            //           backgroundColor: const Color.fromRGBO(255, 51, 119, 1),
-            //           shape: RoundedRectangleBorder(
-            //             borderRadius: BorderRadius.circular(30),
-            //           ),
-            //         ),
-            //         child: const Text(
-            //           'НАЧАТЬ', // Текст кнопки "НАЧАТЬ" прописан заглавными буквами
-            //           style: TextStyle(
-            //             fontSize: 24.0,
-            //             color: Colors.white,
-            //           ),
-            //         ),
-            //       ),
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ),

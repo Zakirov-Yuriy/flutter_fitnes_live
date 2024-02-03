@@ -29,7 +29,7 @@ class _FullBodyWorkoutScreenState extends State<FullBodyWorkoutScreen> {
           SliverAppBar(
             title: _isImageVisible
                 ? null
-                : Text(
+                : const Text(
                     '                Всё тело',
                     style: TextStyle(fontWeight: FontWeight.w600),
                   ),

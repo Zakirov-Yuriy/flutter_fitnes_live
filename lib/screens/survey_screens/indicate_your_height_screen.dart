@@ -33,12 +33,12 @@ class _IndicateYourHeightScreenState extends State<IndicateYourHeightScreen> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            Text(
+            const Text(
               'Каков ваш рост?',
               style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Container(
               height: 35,
               decoration: BoxDecoration(
@@ -58,7 +58,7 @@ class _IndicateYourHeightScreenState extends State<IndicateYourHeightScreen> {
                 borderWidth: 0,
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Visibility(
               visible: isSelected[0],
               child: HeightRulerCentimetersVertical(
@@ -75,14 +75,14 @@ class _IndicateYourHeightScreenState extends State<IndicateYourHeightScreen> {
             ),
             NextRulerCustomButtonWidget(
               buttonText: 'СЛЕДУЮЩЕЕ',
-              destinationWidget: HowMuchYouWeigh(),
+              destinationWidget: const HowMuchYouWeigh(),
               isButtonEnabled: isHeightSelected,
               onPressed: isHeightSelected
                   ? () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => HowMuchYouWeigh(),
+                          builder: (context) => const HowMuchYouWeigh(),
                         ),
                       );
                     }
@@ -141,7 +141,7 @@ class _IndicateYourHeightScreenState extends State<IndicateYourHeightScreen> {
   Widget buildToggleButton(String label, int index) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.horizontal(
+        borderRadius: const BorderRadius.horizontal(
           left: Radius.circular(30),
           right: Radius.circular(30),
         ),

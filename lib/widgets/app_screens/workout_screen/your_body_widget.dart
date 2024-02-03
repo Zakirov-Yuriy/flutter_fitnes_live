@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'your_body_content_widget.dart';
 
 class YourBodyWidget extends StatelessWidget {
+  const YourBodyWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     // Ваш существующий код для YourBodyWidget
@@ -12,13 +14,13 @@ class YourBodyWidget extends StatelessWidget {
           children: [
             Text(
               'Всё тело'.toUpperCase(),
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.w800,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 15),
+            const Padding(
+              padding: EdgeInsets.only(top: 15),
               child: Text(
                 'КОРОТКИЕ УПРАЖНЕНИЯ ИНТЕНСИВНЫЙ И НАСЫЩЕННЫЙ',
                 style: TextStyle(
@@ -33,7 +35,7 @@ class YourBodyWidget extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Column(
+                    const Column(
                       children: [
                         Text(
                           '10',
@@ -59,7 +61,7 @@ class YourBodyWidget extends StatelessWidget {
                         horizontal: 20,
                       ),
                     ),
-                    Column(
+                    const Column(
                       children: [
                         Text(
                           '12',
@@ -81,8 +83,8 @@ class YourBodyWidget extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 16, bottom: 5),
+            const Padding(
+              padding: EdgeInsets.only(top: 16, bottom: 5),
               child: Divider(
                 color: Colors.grey,
                 thickness: 3,
@@ -90,8 +92,8 @@ class YourBodyWidget extends StatelessWidget {
             ),
             Container(
               alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 16, bottom: 5),
+              child: const Padding(
+                padding: EdgeInsets.only(left: 16, bottom: 5),
                 child: Text(
                   'Список упражнений',
                   style: TextStyle(
@@ -101,7 +103,7 @@ class YourBodyWidget extends StatelessWidget {
                 ),
               ),
             ),
-            YourBodyContent(),
+            const YourBodyContent(),
           ],
         ),
       ),

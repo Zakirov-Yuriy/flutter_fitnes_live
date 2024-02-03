@@ -10,7 +10,8 @@ class ExerciseWidget extends StatelessWidget {
   final String subtitleText;
   final String setText;
   final String durationText;
-  ExerciseWidget({
+  const ExerciseWidget({
+    super.key,
     required this.imagePath,
     required this.exerciseText,
     required this.subtitleText,
@@ -41,7 +42,7 @@ class ExerciseWidget extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 10),
                     child: Text(
                       exerciseText,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 18,
                       ),
                     ),
@@ -51,7 +52,7 @@ class ExerciseWidget extends StatelessWidget {
                         150, // Ширина экрана минус ширина изображения и отступа
                     child: Text(
                       subtitleText,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 15,
                         color: Colors.grey,
                       ),
