@@ -1,8 +1,10 @@
-// exercise_details_bottom_sheet.dart
+import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
 
-class ExerciseDetailsBottomSheet extends StatelessWidget {
+class ExerciseDetailsBottomSheet extends StatefulWidget {
+  final String videoUrl; // добавляем URL для видео
   final String imagePath;
   final String exerciseText;
   final String subtitleText;
@@ -10,13 +12,44 @@ class ExerciseDetailsBottomSheet extends StatelessWidget {
   final String durationText;
 
   const ExerciseDetailsBottomSheet({
-    super.key,
+    Key? key,
+    required this.videoUrl,
     required this.imagePath,
     required this.exerciseText,
     required this.subtitleText,
     required this.setText,
     required this.durationText,
-  });
+  }) : super(key: key);
+
+  @override
+  State<ExerciseDetailsBottomSheet> createState() =>
+      _ExerciseDetailsBottomSheetState();
+}
+
+class _ExerciseDetailsBottomSheetState
+    extends State<ExerciseDetailsBottomSheet> {
+  int selectedIndex = 0; // Индекс активного элемента
+  late VideoPlayerController _controller; // Контроллер для видео
+
+  @override
+  void initState() {
+    super.initState();
+    // Инициализируем контроллер видео с URL
+    _controller = VideoPlayerController.network(widget.videoUrl)
+      ..initialize().then((_) {
+        // Гарантируем, что видео начнется с начала
+        _controller.seekTo(Duration.zero);
+        // Обновляем состояние, чтобы виджет перестроился и показал видео
+        setState(() {});
+      });
+  }
+
+  @override
+  void dispose() {
+    // Освобождаем ресурсы контроллера видео
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,15 +59,75 @@ class ExerciseDetailsBottomSheet extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image(
-              image: AssetImage(imagePath),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedIndex = 0;
+                        _controller
+                            .pause(); // Останавливаем видео при переключении на изображение
+                      });
+                    },
+                    child: Text(
+                      'Анимация',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: selectedIndex == 0 ? Colors.pink : Colors.black,
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedIndex = 1;
+                      });
+                    },
+                    child: Text(
+                      'Видео',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: selectedIndex == 1 ? Colors.pink : Colors.black,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
+            if (selectedIndex == 0)
+              Image(
+                image: AssetImage(widget.imagePath),
+              ),
+            if (selectedIndex == 1)
+              _controller.value.isInitialized
+                  ? AspectRatio(
+                      aspectRatio: _controller.value.aspectRatio,
+                      child: Stack(
+                        alignment: Alignment.bottomCenter,
+                        children: <Widget>[
+                          VideoPlayer(_controller),
+                          VideoProgressIndicator(
+                            _controller,
+                            allowScrubbing: true,
+                          ),
+                          VideoPlayerControls(
+                            controller: _controller,
+                          ),
+                        ],
+                      ),
+                    )
+                  : const CircularProgressIndicator(), // Показываем индикатор загрузки, пока видео не загрузится
             Padding(
               padding: const EdgeInsets.only(bottom: 10, top: 16),
               child: Row(
                 children: [
                   Text(
-                    exerciseText,
+                    widget.exerciseText,
                     style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -48,13 +141,13 @@ class ExerciseDetailsBottomSheet extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  setText,
+                  widget.setText,
                   style: const TextStyle(
                     fontSize: 18,
                   ),
                 ),
                 Text(
-                  durationText,
+                  widget.durationText,
                   style: const TextStyle(
                     fontSize: 18,
                   ),
@@ -67,7 +160,7 @@ class ExerciseDetailsBottomSheet extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              subtitleText,
+              widget.subtitleText,
               style: const TextStyle(
                 fontSize: 18,
               ),
@@ -96,6 +189,89 @@ class ExerciseDetailsBottomSheet extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class VideoPlayerControls extends StatefulWidget {
+  final VideoPlayerController controller;
+
+  const VideoPlayerControls({Key? key, required this.controller})
+      : super(key: key);
+
+  @override
+  _VideoPlayerControlsState createState() => _VideoPlayerControlsState();
+}
+
+class _VideoPlayerControlsState extends State<VideoPlayerControls> {
+  late Timer _timer;
+  bool _hideControls = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _timer = Timer.periodic(Duration(seconds: 3), (Timer timer) {
+      if (!_hideControls) {
+        setState(() {
+          _hideControls = true;
+        });
+      }
+    });
+
+    widget.controller.addListener(() {
+      if (widget.controller.value.isPlaying) {
+        _timer.cancel(); // Останавливаем таймер при воспроизведении
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: <Widget>[
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              _hideControls = !_hideControls;
+            });
+          },
+          child: AbsorbPointer(
+            absorbing: _hideControls,
+            child: AnimatedOpacity(
+              opacity: _hideControls ? 0.0 : 1.0,
+              duration: Duration(milliseconds: 300),
+              child: Container(
+                color: Colors.transparent,
+                child: Center(
+                  child: Icon(
+                    Icons.play_arrow,
+                    color: Color.fromRGBO(255, 51, 119, 1),
+                    size: 100.0,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              _hideControls = !_hideControls;
+            });
+            if (widget.controller.value.isPlaying) {
+              widget.controller.pause();
+            } else {
+              widget.controller.play();
+            }
+          },
+        ),
+      ],
     );
   }
 }

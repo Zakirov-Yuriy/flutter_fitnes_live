@@ -10,6 +10,7 @@ class ExerciseWidget extends StatelessWidget {
   final String subtitleText;
   final String setText;
   final String durationText;
+  final String videoUrl;
   const ExerciseWidget({
     super.key,
     required this.imagePath,
@@ -17,6 +18,7 @@ class ExerciseWidget extends StatelessWidget {
     required this.subtitleText,
     required this.setText,
     required this.durationText,
+    required this.videoUrl,
   });
 
   @override
@@ -81,6 +83,7 @@ class ExerciseWidget extends StatelessWidget {
             subtitleText: subtitleText,
             setText: setText,
             durationText: durationText,
+            videoUrl: videoUrl,
           ),
         );
       },

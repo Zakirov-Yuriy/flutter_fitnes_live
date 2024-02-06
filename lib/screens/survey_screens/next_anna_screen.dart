@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fitnes_live/screens/survey_screens/question_answer_screen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../widgets/survey_screens/button/start_anna_button.dart';
 
