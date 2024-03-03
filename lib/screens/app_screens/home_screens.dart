@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../widgets/app_screens/main_screen/container_carousel_widget.dart';
-import '../../widgets/app_screens/workout_screen/container_carousel_widget_one.dart';
+import '../../widgets/app_screens/workout_screen/training_screen/Container_Carousel_One/your_body/container_carousel_widget_one.dart';
+import '../../widgets/app_screens/workout_screen/training_screen/Container_Carousel_Two/Legs_and_thighs/container_carousel_widget_one.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -57,6 +58,8 @@ class _HomeScreenState extends State<HomeScreen> {
             // Контент страницы
             // Карусель с двумя контейнерами
             ContainerCarouselOne(),
+            const SizedBox(height: 20),
+            ContainerCarouselTwo(),
             const SizedBox(height: 20),
             ContainerCarousel(),
             const SizedBox(height: 20),

@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import 'video_player_controls/video_player_controls.dart';
@@ -54,6 +56,13 @@ class _ExerciseDetailsBottomSheetState
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+        ),
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
