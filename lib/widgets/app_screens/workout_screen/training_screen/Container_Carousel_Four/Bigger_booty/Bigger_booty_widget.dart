@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
-import 'glutes_and_legs_content_widget.dart';
+import 'Bigger_booty_content_widget.dart';
 
-class GlutesAndLegsWidget extends StatelessWidget {
-  const GlutesAndLegsWidget({super.key});
+class BiggerBootyWidget extends StatelessWidget {
+  const BiggerBootyWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Ваш существующий код для GlutesAndLegsWidget
+    // Ваш существующий код для BiggerBootyWidget
     return Padding(
       padding: const EdgeInsets.only(top: 15),
       child: Center(
         child: Column(
           children: [
             Text(
-              'Ягодицы и ноги'.toUpperCase(),
+              'Большая попка'.toUpperCase(),
               style: const TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.w800,
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 15),
+              padding: EdgeInsets.only(top: 15),
               child: Text(
                 'Лучше всего подходит \nдля ног и бедер'.toUpperCase(),
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 18,
                 ),
                 textAlign: TextAlign.center,
@@ -64,7 +64,7 @@ class GlutesAndLegsWidget extends StatelessWidget {
                     const Column(
                       children: [
                         Text(
-                          '25',
+                          '21',
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w800,
@@ -103,7 +103,7 @@ class GlutesAndLegsWidget extends StatelessWidget {
                 ),
               ),
             ),
-            const GlutesAndLegsContent(),
+            const BiggerBootyContent(),
           ],
         ),
       ),
