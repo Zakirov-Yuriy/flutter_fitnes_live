@@ -8,7 +8,7 @@ class ContainerCarouselThree extends StatelessWidget {
   ];
 
   final List<String> titles = [
-    'Программа 8x4',
+    'Программа 8x20',
   ];
 
   final List<String> subtitles = [

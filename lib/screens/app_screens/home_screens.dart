@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../widgets/app_screens/workout_screen/training_screen/Container_Carousel_Five/Tight_toned_arms/container_carousel_widget_one.dart';
 import '../../widgets/app_screens/workout_screen/training_screen/Container_Carousel_Four/Bigger_booty/container_carousel_widget_one.dart';
 import '../../widgets/app_screens/workout_screen/training_screen/Container_Carousel_One/your_body/container_carousel_widget_one.dart';
+import '../../widgets/app_screens/workout_screen/training_screen/Container_Carousel_Six/Face Exercises/container_carousel_widget_one.dart';
 import '../../widgets/app_screens/workout_screen/training_screen/Container_Carousel_Three/Belly_fat_burner/container_carousel_widget_one.dart';
 import '../../widgets/app_screens/workout_screen/training_screen/Container_Carousel_Two/Legs_and_thighs/container_carousel_widget_one.dart';
 
@@ -68,6 +69,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ContainerCarouselFour(),
             const SizedBox(height: 20),
             ContainerCarouselFive(),
+            const SizedBox(height: 20),
+            ContainerCarouselSix(),
             const SizedBox(height: 20),
             // Дополнительный контент
           ],

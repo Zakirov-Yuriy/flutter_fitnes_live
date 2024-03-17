@@ -13,17 +13,17 @@ class TrimButtAndLegsWidget extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              'Подтянутая \nпопа и ноги'.toUpperCase(),
+              'Подтянутые ягодицы'.toUpperCase(),
               style: const TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.w800,
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 15),
+              padding: const EdgeInsets.only(top: 15),
               child: Text(
                 'Лучше всего подходит \nдля ног и бедер'.toUpperCase(),
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                 ),
                 textAlign: TextAlign.center,

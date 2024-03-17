@@ -13,7 +13,7 @@ class BiggerBootyWidget extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              'Большая попка'.toUpperCase(),
+              'Упругие ягодицы'.toUpperCase(),
               style: const TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.w800,

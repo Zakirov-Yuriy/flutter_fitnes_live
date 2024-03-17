@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
+import '../../../../../../screens/app_screens/workout_screen/Face_exercises/face_exercises_workout_screenю.dart';
 
-import '../../../../../../screens/app_screens/workout_screen/tight_toned_arms/tight_toned_arms_workout_screenю.dart';
-
-class ContainerCarouselFive extends StatelessWidget {
+class ContainerCarouselSix extends StatelessWidget {
   final List<String> images = [
-    'assets/images/training_image/workout_image/tight_toned_arms/Tight toned arms.png',
+    'assets/images/training_image/workout_image/Face exercises/Face Exercises.png',
   ];
 
   final List<String> titles = [
-    'Программа 9x21',
+    'Программа 16x21',
   ];
 
   final List<String> subtitles = [
-    'Подтянутые \nруки',
+    'Face \nExercises',
   ];
 
   @override
@@ -67,7 +66,7 @@ class ContainerCarouselFive extends StatelessWidget {
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    TightTonedArmsWorkoutScreen(),
+                                    FaceExercisesWorkoutScreen(),
                               ),
                             );
                           },

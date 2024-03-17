@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
 
-import 'melts_fat_content_widget.dart';
+import 'face_exercises_content_widget.dart';
 
-class MeltsFatWidget extends StatelessWidget {
-  const MeltsFatWidget({super.key});
+class FaceExercisesWidget extends StatelessWidget {
+  const FaceExercisesWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Ваш существующий код для MeltsFatWidget
+    // Ваш существующий код для FaceExercisesWidget
     return Padding(
       padding: const EdgeInsets.only(top: 15),
       child: Center(
         child: Column(
           children: [
             Text(
-              'Всё тело'.toUpperCase(),
+              'Face Exercises'.toUpperCase(),
               style: const TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.w800,
               ),
             ),
-            const Padding(
+            Padding(
               padding: EdgeInsets.only(top: 15),
               child: Text(
-                'КОРОТКИЕ УПРАЖНЕНИЯ ИНТЕНСИВНЫЙ И НАСЫЩЕННЫЙ',
+                'Лучше всего подходит \nдля лица'.toUpperCase(),
                 style: TextStyle(
                   fontSize: 18,
                 ),
@@ -39,7 +39,7 @@ class MeltsFatWidget extends StatelessWidget {
                     const Column(
                       children: [
                         Text(
-                          '8',
+                          '16',
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.w800,
@@ -104,7 +104,7 @@ class MeltsFatWidget extends StatelessWidget {
                 ),
               ),
             ),
-            const MeltsFatContent(),
+            const FaceExercisesThighsContent(),
           ],
         ),
       ),

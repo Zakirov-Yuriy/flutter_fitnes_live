@@ -9,13 +9,13 @@ class ContainerCarouselFour extends StatelessWidget {
   ];
 
   final List<String> titles = [
-    'Программа 9x4',
-    'Программа 9x4',
+    'Программа 9x21',
+    'Программа 9x21',
   ];
 
   final List<String> subtitles = [
-    'Большая \nпопка',
-    'Подтянутая \nпопа и ноги',
+    'Упругие \nягодицы',
+    'Подтянутые \nягодицы',
   ];
 
   @override
