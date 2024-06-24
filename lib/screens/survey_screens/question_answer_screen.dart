@@ -6,8 +6,9 @@
 
 // Импорт необходимых библиотек и виджетов
 import 'package:flutter/material.dart';
-import 'package:flutter_fitnes_live/screens/survey_screens/sole_purpose_screen.dart';
-import 'package:flutter_fitnes_live/widgets/survey_screens/question%20answer/question_answer_widget.dart';
+import 'package:release/screens/survey_screens/sole_purpose_screen.dart';
+import 'package:release/widgets/survey_screens/question%20answer/question_answer_widget.dart';
+
 import '../../widgets/survey_screens/button/next_button.dart';
 
 // Основной виджет для экрана "Цель"

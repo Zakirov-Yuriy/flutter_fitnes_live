@@ -5,9 +5,7 @@
 
 // Импорт необходимых библиотек
 import 'package:flutter/material.dart';
-
-import 'package:flutter_fitnes_live/screens/survey_screens/what_you_want_to_work_on.dart';
-
+import 'package:release/screens/survey_screens/what_you_want_to_work_on.dart';
 import '../../widgets/survey_screens/button/start_button.dart';
 
 // Класс для создания SmartExercise

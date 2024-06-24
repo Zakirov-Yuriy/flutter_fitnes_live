@@ -2,7 +2,7 @@
 // Загружаем необходимые библиотеки
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_fitnes_live/screens/survey_screens/next_anna_screen.dart';
+import 'package:release/screens/survey_screens/next_anna_screen.dart';
 
 class SplashImageScreen extends StatefulWidget {
   const SplashImageScreen({Key? key}) : super(key: key);

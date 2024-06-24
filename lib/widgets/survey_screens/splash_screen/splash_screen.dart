@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fitnes_live/screens/app_screens/main_screen.dart';
-// Подключите ваш главный экран
-import 'package:flutter_fitnes_live/screens/survey_screens/next_anna_screen.dart';
+import 'package:release/screens/app_screens/main_screen.dart';
+import 'package:release/screens/survey_screens/next_anna_screen.dart';
 
 // Импортируйте shared_preferences
 import 'package:shared_preferences/shared_preferences.dart';

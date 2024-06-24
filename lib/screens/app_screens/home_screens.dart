@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../widgets/app_screens/calendar_screen/calendar_screen.dart';
 import '../../widgets/app_screens/workout_screen/training_screen/Container_Carousel_Five/Tight_toned_arms/container_carousel_widget_one.dart';
 import '../../widgets/app_screens/workout_screen/training_screen/Container_Carousel_Four/Bigger_booty/container_carousel_widget_one.dart';
 import '../../widgets/app_screens/workout_screen/training_screen/Container_Carousel_One/your_body/container_carousel_widget_one.dart';
@@ -20,14 +21,13 @@ class _HomeScreenState extends State<HomeScreen> {
           icon: const Icon(Icons.edit_calendar_outlined),
           color: const Color.fromRGBO(255, 51, 119, 1),
           onPressed: () {
-            // Действие по нажатию на иконку календаря
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const CalendarScreen()),
+            );
           },
         ),
         // Остальные параметры AppBar
-
-        actions: [
-          // Дополнительные действия AppBar, если есть
-        ],
       ),
       body: SingleChildScrollView(
         child: Column(

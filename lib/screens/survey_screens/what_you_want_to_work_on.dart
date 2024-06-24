@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_fitnes_live/widgets/survey_screens/what%20you%20want%20to%20work%20on/what_you_want_to_work_on_widget.dart';
-
 import '../../widgets/survey_screens/button/next_button.dart';
+import '../../widgets/survey_screens/what you want to work on/what_you_want_to_work_on_widget.dart';
 import 'we_can_cope_screen.dart';
 
 class WhatYouWantToWorkOn extends StatefulWidget {

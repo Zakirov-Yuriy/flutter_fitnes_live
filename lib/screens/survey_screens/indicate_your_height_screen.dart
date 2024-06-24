@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fitnes_live/screens/survey_screens/how_much_you_weigh_screen.dart';
-import 'package:flutter_fitnes_live/widgets/survey_screens/indicate%20your%20height/height_ruler_centimeters_widget.dart';
-import 'package:flutter_fitnes_live/widgets/survey_screens/indicate%20your%20height/height_ruler_feet_widget.dart';
 import 'package:provider/provider.dart';
+import 'package:release/screens/survey_screens/how_much_you_weigh_screen.dart';
+import 'package:release/widgets/survey_screens/indicate%20your%20height/height_ruler_centimeters_widget.dart';
+import 'package:release/widgets/survey_screens/indicate%20your%20height/height_ruler_feet_widget.dart';
 
 import '../../provider/height_provider.dart';
 import '../../widgets/survey_screens/button/next_ruler_button.dart';

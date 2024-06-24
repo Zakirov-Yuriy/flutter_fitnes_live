@@ -6,7 +6,7 @@
 
 // Импорт необходимых библиотек и кастомных иконок
 import 'package:flutter/material.dart';
-import 'package:flutter_fitnes_live/costom_icons.dart';
+import 'package:release/costom_icons.dart';
 
 // Виджет для отображения элемента выбора цели
 class SolePurposeWidget extends StatefulWidget {

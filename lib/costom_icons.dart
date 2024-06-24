@@ -11,7 +11,7 @@
 ///      fonts:
 ///       - asset: fonts/CostomIcons.ttf
 ///
-///
+/////
 ///
 import 'package:flutter/widgets.dart';
 
@@ -28,3 +28,6 @@ class CostomIcons {
   static const IconData sports_4fzqtvt977t1 =
       IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
+
+
+///

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fitnes_live/provider/height_provider.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
+import 'package:release/provider/height_provider.dart';
 import '../../provider/birth_year_provider.dart';
 import '../../provider/weight_provider.dart';
 
@@ -49,7 +49,7 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Аватарка
-            buildAvatar(),
+            // buildAvatar(),
 
             const SizedBox(height: 20),
 
@@ -115,32 +115,32 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
     });
   }
 
-  Widget buildAvatar() {
-    return GestureDetector(
-      onTap: () {
-        _showImageSourceDialog();
-      },
-      child: Center(
-        child: CircleAvatar(
-          radius: 50,
-          backgroundImage: avatarUrl != null
-              ? NetworkImage(avatarUrl!)
-              : const AssetImage('assets/images/avatar.jpg') as ImageProvider,
-          child: avatarUrl == null
-              ? IconButton(
-                  icon: Icon(
-                    Icons.add_a_photo,
-                    color: Colors.grey.withOpacity(0.0),
-                  ),
-                  onPressed: () {
-                    _showImageSourceDialog();
-                  },
-                )
-              : null,
-        ),
-      ),
-    );
-  }
+  // Widget buildAvatar() {
+  //   return GestureDetector(
+  //     onTap: () {
+  //       _showImageSourceDialog();
+  //     },
+  //     child: Center(
+  //       child: CircleAvatar(
+  //         radius: 50,
+  //         backgroundImage: avatarUrl != null
+  //             ? NetworkImage(avatarUrl!)
+  //             : const AssetImage('assets/images/avatar.jpg') as ImageProvider,
+  //         child: avatarUrl == null
+  //             ? IconButton(
+  //                 icon: Icon(
+  //                   Icons.add_a_photo,
+  //                   color: Colors.grey.withOpacity(0.0),
+  //                 ),
+  //                 onPressed: () {
+  //                   _showImageSourceDialog();
+  //                 },
+  //               )
+  //             : null,
+  //       ),
+  //     ),
+  //   );
+  // }
 
   // В методе buildUserNameText() добавьте иконку карандаша
   Widget buildUserNameText() {
@@ -295,10 +295,16 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                 });
               },
               style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white,
-                backgroundColor: Colors.pink, // Цвет текста
+                foregroundColor: gender == 'Мужской'
+                    ? Colors.white
+                    : Colors.black, // Цвет текста
+                backgroundColor: gender == 'Мужской'
+                    ? Colors.pink
+                    : Colors.white, // Цвет кнопки
                 padding: const EdgeInsets.symmetric(
-                    vertical: 8, horizontal: 50), // Поля вокруг текста
+                  vertical: 8,
+                  horizontal: 50,
+                ), // Поля вокруг текста
               ),
               child: const Text(
                 'М',
@@ -313,10 +319,16 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
                 });
               },
               style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white,
-                backgroundColor: Colors.pink, // Цвет текста
+                foregroundColor: gender == 'Женский'
+                    ? Colors.white
+                    : Colors.black, // Цвет текста
+                backgroundColor: gender == 'Женский'
+                    ? Colors.pink
+                    : Colors.white, // Цвет кнопки
                 padding: const EdgeInsets.symmetric(
-                    vertical: 8, horizontal: 50), // Поля вокруг текста
+                  vertical: 8,
+                  horizontal: 50,
+                ), // Поля вокруг текста
               ),
               child: const Text(
                 'Ж',
@@ -325,6 +337,46 @@ class _MyProfileScreenState extends State<MyProfileScreen> {
             ),
           ],
         ),
+
+        // Row(
+        //   children: [
+        //     ElevatedButton(
+        //       onPressed: () {
+        //         setState(() {
+        //           gender = 'Мужской';
+        //         });
+        //       },
+        //       style: ElevatedButton.styleFrom(
+        //         foregroundColor: Colors.white,
+        //         backgroundColor: Colors.pink, // Цвет текста
+        //         padding: const EdgeInsets.symmetric(
+        //             vertical: 8, horizontal: 50), // Поля вокруг текста
+        //       ),
+        //       child: const Text(
+        //         'М',
+        //         style: TextStyle(fontSize: 18),
+        //       ),
+        //     ),
+        //     const SizedBox(width: 15), // Увеличьте расстояние между кнопками
+        //     ElevatedButton(
+        //       onPressed: () {
+        //         setState(() {
+        //           gender = 'Женский';
+        //         });
+        //       },
+        //       style: ElevatedButton.styleFrom(
+        //         foregroundColor: Colors.white,
+        //         backgroundColor: Colors.pink, // Цвет текста
+        //         padding: const EdgeInsets.symmetric(
+        //             vertical: 8, horizontal: 50), // Поля вокруг текста
+        //       ),
+        //       child: const Text(
+        //         'Ж',
+        //         style: TextStyle(fontSize: 18),
+        //       ),
+        //     ),
+        //   ],
+        // ),
         const SizedBox(height: 20),
       ],
     );

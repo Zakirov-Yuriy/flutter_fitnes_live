@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_fitnes_live/provider/birth_year_provider.dart';
-import 'package:flutter_fitnes_live/screens/survey_screens/indicate_your_height_screen.dart';
+
 import 'package:provider/provider.dart';
+import 'package:release/provider/birth_year_provider.dart';
+import 'package:release/screens/survey_screens/indicate_your_height_screen.dart';
 
 import '../../widgets/survey_screens/button/next_button.dart';
 

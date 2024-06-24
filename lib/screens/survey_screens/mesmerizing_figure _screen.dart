@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fitnes_live/widgets/survey_screens/button/start_button.dart';
+import 'package:release/widgets/survey_screens/button/start_button.dart';
 
 import '../app_screens/main_screen.dart';
 

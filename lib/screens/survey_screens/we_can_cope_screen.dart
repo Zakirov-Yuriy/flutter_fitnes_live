@@ -4,7 +4,7 @@
 
 // Импорт необходимых библиотек
 import 'package:flutter/material.dart';
-import 'package:flutter_fitnes_live/screens/survey_screens/enter_your_birthday_screen.dart';
+import 'package:release/screens/survey_screens/enter_your_birthday_screen.dart';
 
 import '../../widgets/survey_screens/button/start_button.dart';
 
